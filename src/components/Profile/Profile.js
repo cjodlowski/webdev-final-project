@@ -1,6 +1,7 @@
 import React from "react";
 import "../../vendors/bootstrap/bootstrap.min.css"
 import "../../vendors/fontawesome/css/all.css"
+import {Link} from "react-router-dom"
 
 const Profile = () => {
     return (

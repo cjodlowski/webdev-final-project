@@ -1,9 +1,9 @@
-import react from "react";
+import React from "react";
 
 const ReviewList = () => {
     return(
         <>
-        <h2>ReviewList</h2>
+        <h2>Reviews</h2>
         <li>
             {/* map review list */}
         </li>

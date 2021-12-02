@@ -17,7 +17,7 @@ function App() {
         <Route path={["/", "/home"]} exact={true}>
           <Home />
         </Route>
-        <Route path={["/profile"]}>
+        <Route path={["/profile"]} exact={false}>
           <Profile/>
         </Route>
         <Route path={["/profile/bookmarks"]} exact={true}>
