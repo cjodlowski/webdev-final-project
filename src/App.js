@@ -5,6 +5,8 @@ import Profile from "./components/Profile/Profile"
 import BookmarkList from "./components/Profile/BookmarkList";
 import FollowingList from "./components/Profile/FollowingList";
 import ReviewList from "./components/Profile/ReviewList";
+import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
+import PrivacyPolicyLink from "./components/PrivacyPolicy/PrivacyPolicyLink";
 
 
 function App() {
@@ -28,6 +30,12 @@ function App() {
         </Route>
         <Route path={["/profile/reviews"]} exact={true}>
           <ReviewList/>
+        </Route>
+        <Route path={"/privacypolicy"} exact={true}>
+          <PrivacyPolicy/>
+        </Route>
+        <Route path={"/"}>
+          <PrivacyPolicyLink/>
         </Route>
       </div>
     </BrowserRouter>

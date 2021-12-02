@@ -21,7 +21,9 @@ const Navigation = () => {
                     <Link to="/profile">
                         <button className="btn btn-primary list-group-item mx-2">My Profile</button>
                     </Link>
-                    <button className="btn btn-primary list-group-item mx-2">Login</button>
+                    <Link to="/login">
+                        <button className="btn btn-primary list-group-item mx-2">Login</button>
+                    </Link>
                 </div>
             </div>
         </div>

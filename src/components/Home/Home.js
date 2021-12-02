@@ -5,7 +5,7 @@ import {Link} from "react-router-dom"
 const Home = () => {
     return(
         <>
-        <h1>This is temp home page</h1>
+        <h1>Shop</h1>
         <ul>
             <li>
                 <Link>Category 1</Link>
@@ -20,6 +20,8 @@ const Home = () => {
                 <Link>Category 4</Link>
             </li>
         </ul>
+        <h1>Recent Reviews</h1>
+        <h1>Recent Bookmarks</h1>
         </>
     )
 }
