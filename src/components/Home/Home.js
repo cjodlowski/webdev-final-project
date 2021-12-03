@@ -20,8 +20,7 @@ const Home = () => {
                 <Link>Category 4</Link>
             </li>
         </ul>
-        <h1>Recent Reviews</h1>
-        <h1>Recent Bookmarks</h1>
+        <h1>Recently Viewed</h1>
         </>
     )
 }
