@@ -1,5 +1,7 @@
-.remove-decorations {
-    text-decoration: none;
+
+
+.remove-decorations.override-bs {
+    text-decoration: none !important;
 }
 
 .button-group-border.override-bs {
@@ -12,5 +14,13 @@
 }
 .background-color-light.override-bs {
     background-color: rgb(248,249,250);
+}
+
+.text-color-light.override-bs {
+    color: rgb(248, 249, 250);
+}
+
+.button-input-group-border.override-bs {
+    border-left: 0;
 }
 
