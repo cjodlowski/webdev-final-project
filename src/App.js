@@ -2,9 +2,6 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/Home/Home"
 import Navigation from "./components/Navigation"
 import Profile from "./components/Profile/Profile"
-import BookmarkList from "./components/Profile/BookmarkList";
-import FollowingList from "./components/Profile/FollowingList";
-import CartList from "./components/Profile/CartList";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import PrivacyPolicyLink from "./components/PrivacyPolicy/PrivacyPolicyLink";
 
@@ -21,15 +18,6 @@ function App() {
         </Route>
         <Route path={["/profile"]} exact={false}>
           <Profile/>
-        </Route>
-        <Route path={["/profile/bookmarks"]} exact={true}>
-          <BookmarkList/>
-        </Route>
-        <Route path={["/profile/following"]} exact={true}>
-          <FollowingList/>
-        </Route>
-        <Route path={["/profile/cart"]} exact={true}>
-          <CartList/>
         </Route>
         <Route path={"/privacypolicy"} exact={true}>
           <PrivacyPolicy/>
