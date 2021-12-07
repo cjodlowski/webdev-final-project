@@ -3,7 +3,7 @@ import React from "react";
 const CartList = () => {
     return(
         <>
-        <h2>Reviews</h2>
+        <h2>Your Cart</h2>
         <li>
             {/* map review list */}
         </li>

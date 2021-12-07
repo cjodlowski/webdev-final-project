@@ -7,10 +7,26 @@ import { Route, Link } from "react-router-dom"
 import BookmarkList from "./BookmarkList";
 import FollowingList from "./FollowingList";
 import CartList from "./CartList";
-
+const ProfileTabs = (active) => {
+    active = active.active;
+    return (
+        <ul className=" nav nav-pills justify-content-center mt-2">
+            {/* TODO: Sophie help make this look good */}
+            <li className={`nav-item`}>
+                <Link className= {` nav-link ${active === 'bookmarks' ? 'active' : ''}`} to="/profile/bookmarks">Bookmarks</Link>
+            </li>
+            <li className={`nav-item`}>
+                <Link className={`nav-link ${active === 'following' ? 'active' : ''}`} to="/profile/following">Following</Link>
+            </li>
+            <li className={`nav-item`}>
+                <Link className={`nav-link ${active === 'cart' ? 'active' : ''}`} to="/profile/cart">Cart</Link>
+            </li>
+        </ul>
+    )
+}
 const Profile = () => {
     return (
-        <div className="row container">
+        <div className="row">
             <div className="col-6 card">
                 <h1>Profile is going here.</h1>
                 <img className="profile-image" src="..." />
@@ -19,24 +35,16 @@ const Profile = () => {
                 <p>Date of Birth</p>
             </div>
             <div className="col-6">
-                <ul class="nav justify-content-center">
-                    <li class="nav-item">
-                        <Link class="nav-link active" to="/profile/bookmarks">Bookmarks</Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link class="nav-link" to="/profile/following">Following</Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link class="nav-link" to="/profile/cart">Cart</Link>
-                    </li>
-                </ul>
                 <Route path={["/profile/bookmarks"]} exact={true}>
+                    <ProfileTabs active="bookmarks"/>
                     <BookmarkList />
                 </Route>
                 <Route path={["/profile/following"]} exact={true}>
+                <ProfileTabs active="following"/>
                     <FollowingList />
                 </Route>
                 <Route path={["/profile/cart"]} exact={true}>
+                    <ProfileTabs active="cart"/>
                     <CartList />
                 </Route>
             </div>
