@@ -4,7 +4,7 @@ import Navigation from "./components/Navigation"
 import Profile from "./components/Profile/Profile"
 import BookmarkList from "./components/Profile/BookmarkList";
 import FollowingList from "./components/Profile/FollowingList";
-import ReviewList from "./components/Profile/ReviewList";
+import CartList from "./components/Profile/CartList";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import PrivacyPolicyLink from "./components/PrivacyPolicy/PrivacyPolicyLink";
 
@@ -28,8 +28,8 @@ function App() {
         <Route path={["/profile/following"]} exact={true}>
           <FollowingList/>
         </Route>
-        <Route path={["/profile/reviews"]} exact={true}>
-          <ReviewList/>
+        <Route path={["/profile/cart"]} exact={true}>
+          <CartList/>
         </Route>
         <Route path={"/privacypolicy"} exact={true}>
           <PrivacyPolicy/>

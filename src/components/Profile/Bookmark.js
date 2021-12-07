@@ -1,12 +1,12 @@
 import React from "react";
-
 const Bookmark = () => {
     return (
         <li className="col-2">
-            <img class="card-img-top" src="..." alt="Card image cap"/>
-            <div class ="card-body">
-            <h5 class ="card-title">Card title</h5>
-            <p class ="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <img className="card-img-top" src={"./shoppingcart.webp"} alt="item"/>
+            <div className="card-body">
+                <h5 className="card-title">Item</h5>
+                <h6 className="card-subtitle">Price</h6> 
+                <i class="fas fa-heart"></i>
             </div>
         </li>
     )
