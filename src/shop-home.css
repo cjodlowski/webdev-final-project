@@ -16,9 +16,16 @@
     background-color: rgb(248,249,250);
 }
 
-.text-color-light.override-bs {
+.color-light.override-bs {
     color: rgb(248, 249, 250);
 }
+
+.title-format.override-bs {
+    font-size: 48px;
+    display: inline-block;
+}
+
+
 
 .button-input-group-border.override-bs {
     border-left: 0;

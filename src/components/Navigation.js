@@ -5,50 +5,49 @@ import "../vendors/fontawesome/css/all.css"
 
 import SearchBar from "./SearchBar";
 
-const Navigation = () => {
+const Navigation = (active = 'featured') => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div className="container-fluid mt-2">
-                <div className="col-1 ms-3 mb-3">
+        <nav className="navbar navbar-expand navbar-dark bg-primary">
+            <div className="container-fluid mt-2 d-flex flex-row">
+                <div className="d-flex justify-content-start">
                     <Link to="/home">
-                        <span className={"remove-decorations override-bs text-color-light"}>Shop</span>
+                        <span className={"remove-decorations override-bs title-format" +
+                        " color-light"}>Shop</span>
                     </Link>
                 </div>
-                <button className="col-1 navbar-toggler" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#navbarColor01"
-                        aria-controls="navbarColor01" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"/>
-                </button>
-
-                <div className="collapse navbar-collapse" id="navbarColor01">
-                    <ul className="navbar-nav me-auto">
-                        <li className="nav-item mb-2">Home
-                            <span className="visually-hidden">(current)</span></li>
-                        <li className="nav-item mb-2">Details</li>
-                        {/* ^^ placeholder for potential future implementation,,, do the $active
-                         check for this if used*/}
+                <div className={"d-flex justify-content-center"}>
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <a className={`nav-link ${active === 'featured' ? 'active' : ''}`} href="#">Featured</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className={`nav-link ${active === 'recents' ? 'active' : ''}`} href="#">Recents</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className={`nav-link ${active === 'policies' ? 'active' : ''}`} href="#">Policies</a>
+                        </li>
                     </ul>
-
-                        <div className="d-flex">
-                            <SearchBar/>
-                        </div>
-                <div className="col-2 mb-3 btn-group" role="group">
-                    <Link to="/profile">
-                        <button type="button" className="btn btn-light button-group-border my-2 my-sm-0 my-md-0 ms-2 override-bs">Profile</button>
-                    </Link>
-                    <div className="btn-group" role="group">
-                        <button  id="btnGroupDrop1" type="button"
-                                 className="btn btn-light dropdown-toggle"
-                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
-                        <div className="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <a className="dropdown-item" href="#">Dropdown link</a>
-                            <Link to="/login">
-                                <span className="dropdown-item">Login</span>
-                            </Link>
-                        </div>
-                    </div>
                 </div>
+                <div className={"d-flex justify-content-end"}>
+                    <div className={"col-3 col-md-4 col-lg-8 me-1"}>
+                        <SearchBar/>
+                    </div>
+                    <div className="col-4 mb-3 btn-group" role="group">
+                            <Link to="/profile">
+                                <button type="button" className="btn btn-light button-group-border override-bs">Profile</button>
+                            </Link>
+                            <div className="btn-group" role="group">
+                                <button  id="btnGroupDrop1" type="button"
+                                         className="btn btn-light dropdown-toggle"
+                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+                                <div className="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a className="dropdown-item" href="#">Dropdown link</a>
+                                    <Link to="/login">
+                                        <span className="dropdown-item">Login</span>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </nav>

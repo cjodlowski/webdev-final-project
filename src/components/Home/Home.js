@@ -7,8 +7,7 @@ active = 'cat1'
               }) => {
     return(
         <>
-        <h1>Shop</h1>
-            <div className="col-2 ms-3">
+            <div className="col-2 ms-3 mt-3">
                 <ul className={`list-group`}>
                     <Link to="/shop/home" className={`list-group-item remove-decorations override-bs ${active === 'cat1' ? 'active' : ''}`}>
                         <i className={"fas fa-home me-3"}/>
@@ -28,7 +27,6 @@ active = 'cat1'
                     </Link>
                 </ul>
             </div>
-        <h1>Recently Viewed</h1>
         </>
     )
 }
