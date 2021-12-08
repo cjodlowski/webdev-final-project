@@ -12,20 +12,15 @@
 .background-color-primary.override-bs {
     background-color: rgb(120,194,173);
 }
+
 .background-color-light.override-bs {
     background-color: rgb(248,249,250);
-}
-
-.color-light.override-bs {
-    color: rgb(248, 249, 250);
 }
 
 .title-format.override-bs {
     font-size: 48px;
     display: inline-block;
 }
-
-
 
 .button-input-group-border.override-bs {
     border-left: 0;
