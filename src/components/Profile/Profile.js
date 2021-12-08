@@ -10,7 +10,7 @@ import CartList from "./CartList";
 const ProfileTabs = (active) => {
     active = active.active;
     return (
-        <ul className=" nav nav-pills justify-content-center mt-2">
+        <ul className=" nav nav-pills justify-content-center">
             {/* TODO: Sophie help make this look good */}
             <li className={`nav-item`}>
                 <Link className= {` nav-link ${active === 'bookmarks' ? 'active' : ''}`} to="/profile/bookmarks">Bookmarks</Link>
@@ -27,14 +27,14 @@ const ProfileTabs = (active) => {
 const Profile = () => {
     return (
         <div className="row">
-            <div className="col-6 card">
+            <div className="col-6">
                 <h1>Profile is going here.</h1>
                 <img className="profile-image" src="..." />
                 <p>Username</p>
                 <p> First Name Last Name </p>
                 <p>Date of Birth</p>
             </div>
-            <div className="col-6">
+            <div className="col-6 mt-2 profile-section override-bs">
                 <Route path={["/profile/bookmarks"]} exact={true}>
                     <ProfileTabs active="bookmarks"/>
                     <BookmarkList />

@@ -4,9 +4,9 @@ const CartList = () => {
     return(
         <>
         <h2>Your Cart</h2>
-        <li>
+        <ul>
             {/* map review list */}
-        </li>
+        </ul>
         </>
     )
 }
