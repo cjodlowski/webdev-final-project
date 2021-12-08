@@ -1,0 +1,9 @@
+.card-format.override-bs {
+    max-width: 20rem;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 15px 15px;
+/*    border spacing works vertical pxs first, then horizontal pxs */
+}
