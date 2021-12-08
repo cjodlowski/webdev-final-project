@@ -1,7 +1,7 @@
 import React from "react";
 import "../../vendors/bootstrap/bootstrap.min.css"
 import {Link} from "react-router-dom"
-import Categories from "./CategorySidebar/categories";
+import Categories from "./CategorySidebar/Categories";
 
 const Home = () => {
     return(
