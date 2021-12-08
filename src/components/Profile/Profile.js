@@ -27,14 +27,14 @@ const ProfileTabs = (active) => {
 const Profile = () => {
     return (
         <div className="row">
-            <div className="col-6">
+            <div className="col-4 mx-2">
                 <h1>Profile is going here.</h1>
                 <img className="profile-image" src="..." />
                 <p>Username</p>
                 <p> First Name Last Name </p>
                 <p>Date of Birth</p>
             </div>
-            <div className="col-6 mt-2 profile-section override-bs">
+            <div className="col-7 mt-2 profile-section override-bs">
                 <Route path={["/profile/bookmarks"]} exact={true}>
                     <ProfileTabs active="bookmarks"/>
                     <BookmarkList />

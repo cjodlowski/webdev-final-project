@@ -4,7 +4,7 @@ const CartList = () => {
     return(
         <>
         <h2>Your Cart</h2>
-        <ul>
+        <ul className="mb-2">
             {/* map review list */}
         </ul>
         </>
