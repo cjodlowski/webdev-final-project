@@ -35,7 +35,7 @@ const Profile = () => {
                 <p>Date of Birth</p>
             </div>
             <div className="col-7 mt-2 profile-section override-bs">
-                <Route path={["/profile/bookmarks"]} exact={true}>
+                <Route path={["/profile", "/profile/bookmarks"]} exact={true}>
                     <ProfileTabs active="bookmarks"/>
                     <BookmarkList />
                 </Route>
