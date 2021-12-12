@@ -3,6 +3,8 @@ import Home from "./components/Home/Home"
 import Navigation from "./components/Navigation"
 import Profile from "./components/Profile/Profile"
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
+import Login from "./components/Login/Login";
+import SignUp from "./components/Login/SignUp";
 
 
 function App() {
@@ -15,7 +17,8 @@ function App() {
         <Route path={["/", "/home"]} exact={true}>
           <Home />
         </Route>
-        <Route path={["/profile/:id"]} exact={false}>
+        <Route path={["/profile/"]} exact={false}>
+          {/* dont forget to add :id to profile path*/}
           <Profile/>
         </Route>
         <Route path={"/privacypolicy"} exact={true}>
