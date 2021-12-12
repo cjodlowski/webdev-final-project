@@ -27,12 +27,19 @@ const ProfileTabs = (active) => {
 const Profile = () => {
     return (
         <div className="row">
-            <div className="col-4 mx-2">
-                <h1>Profile is going here.</h1>
-                <img className="profile-image" src="..." />
-                <p>Username</p>
-                <p> First Name Last Name </p>
-                <p>Date of Birth</p>
+            <div className="col-4 ms-2 mt-3">
+                <div className={"card bg-secondary text-white card-profile-format override-bs"}>
+                    <div className="card-header">Profile</div>
+                    <img className="card-img-top profile-image" src="..." alt="Card image cap"/>
+                    <div className="card-body">
+                        <h5 className="card-title">Username</h5>
+                        <p className="card-text">First name</p>
+                        <p className="card-text">Last name</p>
+                        <p className="card-text">Date of birth</p>
+                        <a href="#" className="btn btn-secondary me-2">Edit</a>
+                        <a href="#" className="btn btn-secondary me-2">Save</a>
+                    </div>
+                </div>
             </div>
             <div className="col-7 mt-2 profile-section override-bs">
                 <Route path={["/profile", "/profile/bookmarks"]} exact={true}>

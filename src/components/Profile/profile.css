@@ -12,3 +12,7 @@
     height: 48px;
     width: 48px;
 }
+
+.card-profile-format.override-bs {
+    max-width: 30rem;
+}
