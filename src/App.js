@@ -15,11 +15,17 @@ function App() {
         <Route path={["/", "/home"]} exact={true}>
           <Home />
         </Route>
-        <Route path={["/profile"]} exact={false}>
+        <Route path={["/profile/:id"]} exact={false}>
           <Profile/>
         </Route>
         <Route path={"/privacypolicy"} exact={true}>
           <PrivacyPolicy/>
+        </Route>
+        <Route path={["/login"]} exact={true}>
+          <Login/>
+        </Route>
+        <Route path={['/register']} exact={true}>
+          <SignUp/>
         </Route>
       </div>
     </BrowserRouter>
