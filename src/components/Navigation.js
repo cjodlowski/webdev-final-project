@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"
+import $ from "jquery/dist/jquery";
+import "bootstrap/js/src/dropdown";
 import "../vendors/bootstrap/bootstrap.min.css"
 import "../vendors/fontawesome/css/all.css"
 
@@ -32,20 +34,23 @@ const Navigation = (active = 'featured') => {
                     <div className={"col-3 col-md-4 col-lg-8 me-1 mt-3"}>
                         <SearchBar/>
                     </div>
-                    <div className="col-4 mb-3 mt-3 btn-group" role="group">
+                    <div className="col-4 mb-3 mt-3 btn-group me-2" role="group">
                             <Link to="/profile">
                                 <button type="button" className="btn btn-light button-group-border override-bs">Profile</button>
                             </Link>
-                            <div className="btn-group" role="group">
-                                <button  id="btnGroupDrop1" type="button"
-                                         className="btn btn-light dropdown-toggle"
-                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
-                                <div className="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                    <a className="dropdown-item" href="#">Dropdown link</a>
-                                    <Link to="/login">
-                                        <span className="dropdown-item">Login</span>
-                                    </Link>
-                                </div>
+                        <button type="button"
+                                className="btn btn-light dropdown-toggle dropdown-toggle-split"
+                                 data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                            <span className="sr-only">Toggle Dropdown</span>
+                        </button>
+                            <div className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownRef">
+                                <Link to="/login" className={"remove-decorations override-bs"}>
+                                    <span className="dropdown-item">Log in</span>
+                                </Link>
+                                <Link to="/register" className={"remove-decorations override-bs"}>
+                                    <span className="dropdown-item">Sign up</span>
+                                </Link>
                             </div>
                         </div>
                 </div>
