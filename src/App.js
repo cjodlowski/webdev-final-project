@@ -5,6 +5,7 @@ import Profile from "./components/Profile/Profile"
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import Login from "./components/Login/Login";
 import SignUp from "./components/Login/SignUp";
+import Featured from "./components/Featured/Featured";
 
 
 function App() {
@@ -16,6 +17,9 @@ function App() {
         </Route>
         <Route path={["/", "/home"]} exact={true}>
           <Home />
+        </Route>
+        <Route path={["/featured"]} exact={true}>
+          <Featured/>
         </Route>
         <Route path={["/profile/"]} exact={false}>
           {/* dont forget to add :id to profile path*/}

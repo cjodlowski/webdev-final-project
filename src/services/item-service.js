@@ -10,5 +10,12 @@ export const findFeatured = () => {
     .then(response => response.json());
 }
 
-
-// export default findAllItems;
+export const findSearchResults = (tags) => {
+    fetch("http://localhost:4000/api/items/search", {
+        method: 'GET',
+        body: JSON.stringify(tags),
+        headers: {
+            'content-type': 'application/json'
+        }
+    }).then(response => response.json());
+}

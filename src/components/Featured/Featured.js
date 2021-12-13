@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import "./catalog.css"
-import CatalogItem from "./CatalogItem"
+import "../Home/Catalog/catalog.css"
+import CatalogItem from "../Home/Catalog/CatalogItem"
 
-import {findAllItems} from "../../../services/item-service"
+import {findFeatured} from "../../services/item-service";
 
-const Catalog = () => {
+const Featured = () => {
     const [items, setItems] = useState([]);
-    useEffect(() => {findAllItems().then(received => setItems(received))})
+    useEffect(() => {findFeatured().then(received => setItems(received))})
     return(
         <>
-            <div className={"row justify-content-center"}>
+            <div className={"row justify-content-center mt-3"}>
                 {
                     items.map((item, key) => {
                         console.log(item);
@@ -21,4 +21,4 @@ const Catalog = () => {
     )
 }
 
-export default Catalog;
+export default Featured;
