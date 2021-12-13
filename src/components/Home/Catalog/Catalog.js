@@ -7,18 +7,16 @@ import findAllItems from "../../../services/item-service"
 const Catalog = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {findAllItems().then(received => setItems(received))})
-
     return(
         <>
-            <table>
-                <tr className={"mb-2 table-spacing override-bs"}>
-                    {
-                        items.map((item, key) => {
-                            <CatalogItem key={key} item={item} />
-                        })
-                    }
-                </tr>
-            </table>
+            <ul>
+                {
+                    items.map((item, key) => {
+                        console.log(item);
+                        return <CatalogItem key={key} item={item} />
+                    })
+                }
+            </ul>
         </>
     )
 }

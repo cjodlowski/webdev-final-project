@@ -2,15 +2,9 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 
-const CatalogItem = (item = {
-    title: "",
-    price: 0,
-    image: "...",
-    rating: 0,
-    tags: [],
-    featured: false,
-    seller : ""
-}) => {
+const CatalogItem = (item) => {
+    item = item.item;
+    console.log(item);
     return(
         <>
             <div className={"card border-secondary card-format override-bs"}>
