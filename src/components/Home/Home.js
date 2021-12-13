@@ -9,7 +9,7 @@ const Home = () => {
             <div className="col-2 ms-3">
                 <Categories/>
             </div>
-            <div className={"col-9 me-3"}>
+            <div className={"col-9"}>
                 <Catalog/>
             </div>
         </div>

@@ -4,14 +4,6 @@
     width:128px;
 }
 
-.profile-section.override-bs {
-    border-left: 5px solid rgb(214, 214, 214);
-}
-
-.tab-image {
-    height: 48px;
-    width: 48px;
-}
 
 .card-profile-format.override-bs {
     max-width: 30rem;
