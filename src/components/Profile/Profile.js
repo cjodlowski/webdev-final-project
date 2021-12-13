@@ -8,24 +8,27 @@ import BookmarkList from "./BookmarkList";
 import FollowingList from "./FollowingList";
 import CartList from "./CartList";
 import SellList from "./SellList";
+
 const ProfileTabs = (active) => {
     active = active.active;
     return (
-        <ul className=" nav nav-pills justify-content-center">
-            {/* TODO: Sophie help make this look good */}
-            <li className={`nav-item`}>
-                <Link className= {` nav-link ${active === 'bookmarks' ? 'active' : ''}`} to="/profile/bookmarks">Bookmarks</Link>
-            </li>
-            <li className={`nav-item`}>
-                <Link className={`nav-link ${active === 'following' ? 'active' : ''}`} to="/profile/following">Following</Link>
-            </li>
-            <li className={`nav-item`}>
-                <Link className={`nav-link ${active === 'cart' ? 'active' : ''}`} to="/profile/cart">Cart</Link>
-            </li>
-            <li className={`nav-item`}>
-                <Link className={`nav-link ${active === 'selling' ? 'active' : ''}`} to="/profile/selling">Now Selling</Link>
-            </li>
-        </ul>
+        <div className={"card-header"}>
+            <ul className="nav nav-tabs card-header-tabs justify-content-center">
+                {/* TODO: Sophie help make this look good */}
+                <li className={`nav-item`}>
+                    <Link className= {` nav-link ${active === 'bookmarks' ? 'active' : ''}`} to="/profile/bookmarks">Bookmarks</Link>
+                </li>
+                <li className={`nav-item`}>
+                    <Link className={`nav-link ${active === 'following' ? 'active' : ''}`} to="/profile/following">Following</Link>
+                </li>
+                <li className={`nav-item`}>
+                    <Link className={`nav-link ${active === 'cart' ? 'active' : ''}`} to="/profile/cart">Cart</Link>
+                </li>
+                <li className={`nav-item`}>
+                    <Link className={`nav-link ${active === 'selling' ? 'active' : ''}`} to="/profile/selling">Now Selling</Link>
+                </li>
+            </ul>
+        </div>
     )
 }
 const Profile = () => {
@@ -45,7 +48,7 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-            <div className="col-7 mt-2 profile-section override-bs">
+            <div className="card border-secondary col-7 mt-2 profile-section override-bs px-0 override-bs">
                 <Route path={["/profile", "/profile/bookmarks"]} exact={true}>
                     <ProfileTabs active="bookmarks"/>
                     <BookmarkList />
