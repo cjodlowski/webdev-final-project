@@ -1,9 +1,10 @@
 import React from "react";
 import "./profile.css"
+
 const Bookmark = () => {
     return (
         // TODO: this is broken af
-        <li className="list-group-item row">
+        <li className="row">
             <div className="col-5 px-1">
                 <div className={"card border-secondary card-format override-bs"}>
                     <div className="card-header">Header</div>

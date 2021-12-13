@@ -7,3 +7,16 @@ table {
     border-spacing: 15px 15px;
 /*    border spacing works vertical pxs first, then horizontal pxs */
 }
+
+.icon-cart-offset.override-bs {
+}
+
+.fa-stack {
+    font-size: 0.5em !important;
+}
+
+.icon-check-offset.override-bs:before {
+    padding-bottom: 5px !important;
+    padding-left: 5px;
+    color: rgb(243,150,154);
+}

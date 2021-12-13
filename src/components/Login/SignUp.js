@@ -3,39 +3,47 @@ import {Link} from "react-router-dom";
 
 const SignUp = () => {
     return (
-        <div>
-            <h2>Please SignUp Here</h2>
-            <div class="form-group">
-                <label for="exampleInputEmail1" class="form-label mt-4">Username</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username" />
+        <div className={"mx-3 my-3"}>
+            <h2>Sign up:</h2>
+            <div className="form-group">
+                <label for="exampleInputEmail1" className="form-label mt-1">Username</label>
+                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username" />
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+            <div className="form-group">
+                <label for="exampleInputPassword1" className="form-label mt-4">Password</label>
+                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
             </div>
-            <div class="form-group">
-                <label for="firstName" class="form-label mt-4">First Name</label>
-                <input type="firstname" class="form-control" id="firstName" placeholder="First Name"/>
+            <div className="form-group">
+                <label className="form-label mt-4">Your first and last name</label>
+                <input type="firstname" className="form-control mb-2" id="firstName" placeholder="First name"/>
+                <input type="lastname" className="form-control" id="lastName" placeholder="Last name"/>
             </div>
-            <div class="form-group">
-                <label for="lastName" class="form-label mt-4">Last Name</label>
-                <input type="lastname" class="form-control" id="lastName" placeholder="Last Name"/>
+            <div className="form-group">
+                <label htmlFor="formFile" className="form-label mt-4">Profile picture</label>
+                <input className="form-control" type="file" id="formFile"/>
             </div>
-            <div class="form-group">
-                <label for="exampleSelect1" class="form-label mt-4">Example select</label>
-                <select class="form-select" id="exampleSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
+            <fieldset className="form-group">
+                <legend className="mt-4">I am a:</legend>
+                <div className="form-check">
+                    <label className="form-check-label">
+                        <input type="radio" className="form-check-input" name="optionsRadios"
+                               id="optionsRadios1" value="option1"/>
+                            Customer
+                    </label>
+                </div>
+                <div className="form-check">
+                    <label className="form-check-label">
+                        <input type="radio" className="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2"/>
+                            Seller
+                    </label>
+                </div>
+            </fieldset>
             <div>
                 {/* Add User in DB here */}
-                <button onClick={() => { }}></button>
+                <button className={"btn btn-secondary mt-2"} onClick={() => { }}>Submit</button>
             </div>
-            <Link to="/register">Click here to Sign Up instead</Link>
+            <h3 className={"mt-3"}>Already an existing user?</h3>
+            <Link to="/login"><p>Click here to log in instead!</p></Link>
         </div>
     )
 }

@@ -36,8 +36,8 @@ const Profile = () => {
                         <p className="card-text">First name</p>
                         <p className="card-text">Last name</p>
                         <p className="card-text">Date of birth</p>
-                        <a href="#" className="btn btn-secondary me-2">Edit</a>
-                        <a href="#" className="btn btn-secondary me-2">Save</a>
+                        <a href="#" className="btn btn-light me-2">Edit</a>
+                        <a href="#" className="btn btn-light me-2">Save</a>
                     </div>
                 </div>
             </div>
