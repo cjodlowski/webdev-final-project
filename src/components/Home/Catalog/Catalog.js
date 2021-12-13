@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./catalog.css"
 import CatalogItem from "./CatalogItem"
 
 const Catalog = () => {
+    //const [items, setItems] = useState([]);
+
     return(
         <>
             <table>

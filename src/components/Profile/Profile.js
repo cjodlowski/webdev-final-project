@@ -7,6 +7,7 @@ import { Route, Link } from "react-router-dom"
 import BookmarkList from "./BookmarkList";
 import FollowingList from "./FollowingList";
 import CartList from "./CartList";
+import SellList from "./SellList";
 const ProfileTabs = (active) => {
     active = active.active;
     return (
@@ -20,6 +21,9 @@ const ProfileTabs = (active) => {
             </li>
             <li className={`nav-item`}>
                 <Link className={`nav-link ${active === 'cart' ? 'active' : ''}`} to="/profile/cart">Cart</Link>
+            </li>
+            <li className={`nav-item`}>
+                <Link className={`nav-link ${active === 'selling' ? 'active' : ''}`} to="/profile/selling">Now Selling</Link>
             </li>
         </ul>
     )
@@ -47,12 +51,16 @@ const Profile = () => {
                     <BookmarkList />
                 </Route>
                 <Route path={["/profile/following"]} exact={true}>
-                <ProfileTabs active="following"/>
+                    <ProfileTabs active="following"/>
                     <FollowingList />
                 </Route>
                 <Route path={["/profile/cart"]} exact={true}>
                     <ProfileTabs active="cart"/>
                     <CartList />
+                </Route>
+                <Route path={["/profile/selling"]} exact={true}>
+                    <ProfileTabs active="selling"/>
+                    <SellList />
                 </Route>
             </div>
         </div>
