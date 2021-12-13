@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-
 const CatalogItem = (
                          item = {
                              title: "item",
@@ -13,6 +12,8 @@ const CatalogItem = (
                              featured: false
                          }
                      ) => {
+    item = item.item;
+
     return(
             <div className={"me-3 mb-3 col-3 card border-secondary px-0 override-bs"}>
                 <div className="card-header">{item.seller}</div>
@@ -20,6 +21,7 @@ const CatalogItem = (
                 <div className="card-body">
                     <h5 className="card-title">{item.title}</h5>
                     <p className="card-text">Flavor text maybe.</p>
+                    <p className="card-text">{item.price}</p>
 
                     <Link to="#" className="btn btn-secondary me-2 mb-2 mb-xxl-0"><i className={"fas" +
                     " fa-cart-plus me-2"}/>Add to cart</Link>
