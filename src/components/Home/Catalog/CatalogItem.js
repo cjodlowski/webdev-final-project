@@ -2,15 +2,24 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 
-const CatalogItem = () => {
+const CatalogItem = (item = {
+    title: "",
+    price: 0,
+    image: "...",
+    rating: 0,
+    tags: [],
+    featured: false,
+    seller : ""
+}) => {
     return(
         <>
             <div className={"card border-secondary card-format override-bs"}>
-                <div className="card-header">Seller name</div>
-                <img className="card-img-top" src="..." alt="shop item image"/>
+                <div className="card-header">{item.seller}</div>
+                <img className="card-img-top" src={item.image} alt="shop item image"/>
                 <div className="card-body">
-                    <h5 className="card-title">Item title</h5>
+                    <h5 className="card-title">{item.title}</h5>
                     <p className="card-text">Flavor text maybe.</p>
+                    <p className="card-text">{item.price}</p>
 
                     <Link to="#" className="btn btn-secondary me-2"><i className={"fas" +
                     " fa-cart-plus me-2"}/>Add to cart</Link>
