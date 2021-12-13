@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./catalog.css"
 import CatalogItem from "./CatalogItem"
 
-import findAllItems from "../../../services/item-service"
+import {findAllItems} from "../../../services/item-service"
 
 const Catalog = () => {
     const [items, setItems] = useState([]);
