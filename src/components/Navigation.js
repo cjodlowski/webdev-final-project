@@ -20,7 +20,7 @@ const Navigation = (active = 'featured') => {
                 <div className={"d-flex justify-content-center mt-1"}>
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className={`nav-link ${active === 'featured' ? 'active' : ''}`} to="#">Featured</Link>
+                            <Link className={`nav-link ${active === 'featured' ? 'active' : ''}`} to="/featured">Featured</Link>
                         </li>
                         <li className="nav-item">
                             <Link className={`nav-link ${active === 'recents' ? 'active' : ''}`} to="#">Recents</Link>
