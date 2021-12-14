@@ -1,13 +1,6 @@
 .card-img-height.override-bs {
-    max-height: 100px;
-    width: min-content;
-}
-
-@-moz-document url-prefix() {
-    .card-img-height.override-bs {
-        max-height: 150px!important;
-        width: 100%;
-    }
+    max-height: 150px;
+    width: auto;
 }
 
 .custom-border-light.override-bs {
