@@ -18,7 +18,7 @@ const CatalogItem = (
             <>
                 <div className={"me-3 mb-3 col-3 card border-secondary px-0 override-bs"}>
                 <div className="card-header">{item.seller}</div>
-                    <img className="card-img-top card-img-height mx-auto d-block override-bs" src={item.image} alt="shop item"/>
+                    <img className="card-img-top card-img-height my-2 mx-auto d-block override-bs" src={item.image} alt="shop item"/>
                     <h5 className="card-title ms-2">{item.title}</h5>
                     <ul className={"list-group list-group-flush custom-border-light override-bs"}>
                         <li className="list-group-item">${item.price}.00</li>
