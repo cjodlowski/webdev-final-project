@@ -11,6 +11,9 @@ const BookmarkList = () => {
     const [currbm, setBookmark] = useState({});
     const params = useParams();
     useEffect(() => {findUserbyId(params.id).then(result => setUser(result))});
+    // TODO: setBookmark changes the state of the bookmark, which means all items are
+    // rendered as the same item, and are rapidly switching back and forth
+    // Need a good way to get an array of bookmark OBJECTS and not IDS, so that we can map through that instead
     const getBookmark = (id) => {findItemById(id).then(result => setBookmark(result))};
     if(user.bookmarks == undefined) {
         user.bookmarks = [];
