@@ -26,7 +26,7 @@ function App() {
         <Route path={["/search/:searchTerm"]} exact={true}>
           <SearchResults />
         </Route>
-        <Route path={["/profile/"]} exact={false}>
+        <Route path={["/profile/:id"]} exact={false}>
           {/* dont forget to add :id to profile path*/}
           <Profile/>
         </Route>
