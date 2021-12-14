@@ -5,9 +5,9 @@ import "./profile.css"
 import { Route, Link } from "react-router-dom"
 
 import BookmarkList from "./BookmarkList";
-import FollowingList from "./FollowingList";
 import CartList from "./CartList";
 import SellList from "./SellList";
+import MakeItem from "../ItemDetails/MakeItem";
 
 const ProfileTabs = (active) => {
     active = active.active;
@@ -19,13 +19,13 @@ const ProfileTabs = (active) => {
                     <Link className= {` nav-link ${active === 'bookmarks' ? 'active' : ''}`} to="/profile/bookmarks">Bookmarks</Link>
                 </li>
                 <li className={`nav-item`}>
-                    <Link className={`nav-link ${active === 'following' ? 'active' : ''}`} to="/profile/following">Following</Link>
-                </li>
-                <li className={`nav-item`}>
                     <Link className={`nav-link ${active === 'cart' ? 'active' : ''}`} to="/profile/cart">Cart</Link>
                 </li>
                 <li className={`nav-item`}>
                     <Link className={`nav-link ${active === 'selling' ? 'active' : ''}`} to="/profile/selling">Now Selling</Link>
+                </li>
+                <li className={`nav-item`}>
+                    <Link className={`nav-link ${active === 'makeItem' ? 'active' : ''}`} to="/profile/makeItem">Create Item</Link>
                 </li>
             </ul>
         </div>
@@ -34,7 +34,7 @@ const ProfileTabs = (active) => {
 const Profile = () => {
     return (
         <div className="row mt-3">
-            <div className="col-4 ms-2">
+            <div className="col-4 ms-3 me-1">
                 <div className={"card bg-light card-profile-format override-bs"}>
                     <div className="card-header larger-text">Profile</div>
                     <img className="mt-2 profile-image d-block mx-auto border" src="/images/spooder.jpg" alt="profile icon"/>
@@ -49,14 +49,10 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-            <div className="col-7 card bg-light profile-section override-bs px-0 override-bs">
+            <div className="col-7 card bg-light profile-section override-bs px-0 mb-3 override-bs">
                 <Route path={["/profile", "/profile/bookmarks"]} exact={true}>
                     <ProfileTabs active="bookmarks"/>
                     <BookmarkList />
-                </Route>
-                <Route path={["/profile/following"]} exact={true}>
-                    <ProfileTabs active="following"/>
-                    <FollowingList />
                 </Route>
                 <Route path={["/profile/cart"]} exact={true}>
                     <ProfileTabs active="cart"/>
@@ -65,6 +61,10 @@ const Profile = () => {
                 <Route path={["/profile/selling"]} exact={true}>
                     <ProfileTabs active="selling"/>
                     <SellList />
+                </Route>
+                <Route path={["/profile/makeItem"]} exact={true}>
+                    <ProfileTabs active="makeItem"/>
+                    <MakeItem />
                 </Route>
             </div>
         </div>

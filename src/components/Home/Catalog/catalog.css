@@ -2,3 +2,7 @@
     max-height: 100px;
     width: min-content;
 }
+
+.custom-border-light.override-bs {
+    border-color: rgb(226,226,226);
+}

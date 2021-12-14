@@ -23,7 +23,7 @@ const Navigation = (active = 'featured') => {
                             <Link className={`nav-link ${active === 'featured' ? 'active' : ''}`} to="/featured">Featured</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className={`nav-link ${active === 'recents' ? 'active' : ''}`} to="#">Recents</Link>
+                            <Link className={`nav-link ${active === 'recents' ? 'active' : ''}`} to="/recents">Recents</Link>
                         </li>
                         <li className="nav-item">
                             <Link className={`nav-link ${active === 'policies' ? 'active' : ''}`} to="/privacypolicy">Policies</Link>

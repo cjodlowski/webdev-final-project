@@ -5,14 +5,7 @@ import Catalog from "./Catalog/Catalog";
 
 const Home = () => {
     return(
-        <div className={"row mt-3"}>
-            <div className="col-2 ms-3">
-                <Categories/>
-            </div>
-            <div className={"col-9"}>
-                <Catalog/>
-            </div>
-        </div>
+            <Catalog/>
     )
 }
 export default Home; 

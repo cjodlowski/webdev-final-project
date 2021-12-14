@@ -8,16 +8,20 @@ const Featured = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {findFeatured().then(received => setItems(received))})
     return(
-        <>
-            <div className={"row justify-content-center mt-3"}>
+        <div className={"row"}>
+            <div className={"col-2"}/>
+            <div className={"col-10 my-3"}>
+                <div className={"row"}>
                 {
                     items.map((item, key) => {
                         //console.log(item);
                         return <CatalogItem key={key} item={item} />
                     })
                 }
+                </div>
             </div>
-        </>
+            <div className={"col-0"}/>
+        </div>
     )
 }
 
