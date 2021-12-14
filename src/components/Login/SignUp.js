@@ -25,6 +25,13 @@ const SignUp = () => {
                         <label htmlFor="formFile" className="form-label mt-4">Profile picture</label>
                         <input className="form-control" type="file" id="formFile"/>
                     </div>
+
+                    <div className="form-group">
+                        <label htmlFor="examplePhone" className="form-label mt-4">Phone Number</label>
+                        <input type="phone" className="form-control" id="examplePhone"
+                               placeholder="###-###-####"/>
+                    </div>
+
                     <fieldset className="form-group">
                         <legend className="mt-4">I am a:</legend>
                         <div className="form-check">
@@ -33,6 +40,7 @@ const SignUp = () => {
                                        id="optionsRadios1" value="option1"/>
                                     Customer
                             </label>
+
                         </div>
                         <div className="form-check">
                             <label className="form-check-label">
