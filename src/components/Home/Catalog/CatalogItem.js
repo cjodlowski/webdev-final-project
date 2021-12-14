@@ -21,7 +21,8 @@ const CatalogItem = (
                 <div className="card-body">
                     <h5 className="card-title">{item.title}</h5>
                     <p className="card-text">Flavor text maybe.</p>
-                    <p className="card-text">{item.price}</p>
+                    <p className="card-text">${item.price}.00</p>
+                    {/*fix the double 0 stuff....gold*/}
 
                     <Link to="#" className="btn btn-secondary me-2 mb-xxl-0">
                         <i className={"fas fa-cart-plus me-2"}/>Add to cart</Link>
