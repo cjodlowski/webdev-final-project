@@ -13,15 +13,21 @@ const CatalogItem = (
                          }
                      ) => {
     item = item.item;
+    const formatCurrency = (price = 1.01) => {
+        let num = price.toLocaleString('en-US', {minimumFractionDigits: 2});
+        return(num);
+    };
 
     return(
             <>
                 <div className={"me-3 mb-3 col-3 card border-secondary px-0 override-bs"}>
-                <div className="card-header">{item.seller}</div>
+                <Link className="card-header remove-decorations override-bs" to={"/profile/id/:id"}>
+                    <h6 className={"mb-0 seller-link"}>{item.seller}</h6>
+                </Link>
                     <img className="card-img-top card-img-height my-2 mx-auto d-block override-bs" src={item.image} alt="shop item"/>
                     <h5 className="card-title ms-2">{item.title}</h5>
                     <ul className={"list-group list-group-flush custom-border-light override-bs"}>
-                        <li className="list-group-item">${item.price}.00</li>
+                        <li className="list-group-item">${formatCurrency(item.price)}</li>
                         {/*TODO: fix the double 0 stuff....*/}
                         <li className="list-group-item">Flavor text maybe.</li>
                     </ul>
