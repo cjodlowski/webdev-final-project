@@ -17,7 +17,7 @@ const CatalogItem = (
     return(
             <div className={"me-3 mb-3 col-3 card border-secondary px-0 override-bs"}>
                 <div className="card-header">{item.seller}</div>
-                <img className="card-img-top" src={item.image} alt="shop item"/>
+                    <img className="card-img-top card-img-height mx-auto d-block override-bs" src={item.image} alt="shop item"/>
                 <div className="card-body">
                     <h5 className="card-title">{item.title}</h5>
                     <p className="card-text">Flavor text maybe.</p>
