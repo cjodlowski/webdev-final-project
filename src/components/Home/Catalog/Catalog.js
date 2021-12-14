@@ -12,10 +12,10 @@ const Catalog = () => {
             <div className={"row"}>
                 {
                     items.map((item, key) => {
-<<<<<<< HEAD
+
                         //console.log(item);
-=======
->>>>>>> 9fb5817f13d997cf4c42b6c9b11dde7ed1946935
+
+
                         return <CatalogItem key={key} item={item} />
                     })
                 }
