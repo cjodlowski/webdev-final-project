@@ -1,26 +1,71 @@
 import React from "react";
 import "../../vendors/bootstrap/bootstrap.min.css"
 import "../../vendors/fontawesome/css/all.css"
-import {Link} from "react-router-dom"
+import "./profile.css"
+import { Route, Link } from "react-router-dom"
 
-const Profile = () => {
+import BookmarkList from "./BookmarkList";
+import FollowingList from "./FollowingList";
+import CartList from "./CartList";
+import SellList from "./SellList";
+
+const ProfileTabs = (active) => {
+    active = active.active;
     return (
-        <div>
-            <h1>Profile is going here.</h1>
-            <p>Username</p>
-            <p>Date of Birth</p>
-            {/* TODO: link these items to pages but make sure profile is still shown*/}
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <Link class="nav-link active" to="/profile/bookmarks">Bookmarks</Link>
+        <div className={"card-header"}>
+            <ul className="nav nav-tabs card-header-tabs justify-content-center">
+                {/* TODO: Sophie help make this look good */}
+                <li className={`nav-item`}>
+                    <Link className= {` nav-link ${active === 'bookmarks' ? 'active' : ''}`} to="/profile/bookmarks">Bookmarks</Link>
                 </li>
-                <li class="nav-item">
-                    <Link class="nav-link"  to="/profile/following">Following</Link>
+                <li className={`nav-item`}>
+                    <Link className={`nav-link ${active === 'following' ? 'active' : ''}`} to="/profile/following">Following</Link>
                 </li>
-                <li class="nav-item">
-                    <Link class="nav-link"  to="/profile/reviews">Reviews</Link>
+                <li className={`nav-item`}>
+                    <Link className={`nav-link ${active === 'cart' ? 'active' : ''}`} to="/profile/cart">Cart</Link>
+                </li>
+                <li className={`nav-item`}>
+                    <Link className={`nav-link ${active === 'selling' ? 'active' : ''}`} to="/profile/selling">Now Selling</Link>
                 </li>
             </ul>
+        </div>
+    )
+}
+const Profile = () => {
+    return (
+        <div className="row">
+            <div className="col-4 ms-2 mt-3">
+                <div className={"card bg-secondary text-white card-profile-format override-bs"}>
+                    <div className="card-header">Profile</div>
+                    <img className="card-img-top profile-image" src="..." alt="Card image cap"/>
+                    <div className="card-body">
+                        <h5 className="card-title">Username</h5>
+                        <p className="card-text">First name</p>
+                        <p className="card-text">Last name</p>
+                        <p className="card-text">Date of birth</p>
+                        <a href="#" className="btn btn-light me-2">Edit</a>
+                        <a href="#" className="btn btn-light me-2">Save</a>
+                    </div>
+                </div>
+            </div>
+            <div className="card border-secondary col-7 mt-2 profile-section override-bs px-0 override-bs">
+                <Route path={["/profile", "/profile/bookmarks"]} exact={true}>
+                    <ProfileTabs active="bookmarks"/>
+                    <BookmarkList />
+                </Route>
+                <Route path={["/profile/following"]} exact={true}>
+                    <ProfileTabs active="following"/>
+                    <FollowingList />
+                </Route>
+                <Route path={["/profile/cart"]} exact={true}>
+                    <ProfileTabs active="cart"/>
+                    <CartList />
+                </Route>
+                <Route path={["/profile/selling"]} exact={true}>
+                    <ProfileTabs active="selling"/>
+                    <SellList />
+                </Route>
+            </div>
         </div>
     )
 }

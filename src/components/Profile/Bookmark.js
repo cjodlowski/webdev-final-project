@@ -1,12 +1,13 @@
 import React from "react";
+import "./profile.css"
+import CatalogItem from "../Home/Catalog/CatalogItem";
 
 const Bookmark = () => {
     return (
-        <li className="col-2">
-            <img class="card-img-top" src="..." alt="Card image cap"/>
-            <div class ="card-body">
-            <h5 class ="card-title">Card title</h5>
-            <p class ="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        // TODO: this is broken af
+        <li className="row">
+            <div className="col-5 px-0 override-bs">
+                <CatalogItem/>
             </div>
         </li>
     )

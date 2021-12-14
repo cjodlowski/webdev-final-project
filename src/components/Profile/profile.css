@@ -1,0 +1,10 @@
+.profile-image {
+    border-radius: 10px;
+    height: 128px;
+    width:128px;
+}
+
+
+.card-profile-format.override-bs {
+    max-width: 30rem;
+}

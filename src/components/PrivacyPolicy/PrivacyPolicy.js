@@ -2,7 +2,7 @@ import react from "react"
 
 const PrivacyPolicy = () => {
     return (
-        <div class="container">
+        <div class="container mt-3">
             <div class="tab-content translations-content-item en visible" id="en">
                 <h1>Privacy Policy</h1>
                 <p>Last updated: December 02, 2021</p>

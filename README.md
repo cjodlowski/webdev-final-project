@@ -1,3 +1,6 @@
+# Please install react-bootstrap package!
+Run `npm install react-bootstrap` before starting the webpage!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

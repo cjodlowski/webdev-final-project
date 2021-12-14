@@ -2,11 +2,9 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/Home/Home"
 import Navigation from "./components/Navigation"
 import Profile from "./components/Profile/Profile"
-import BookmarkList from "./components/Profile/BookmarkList";
-import FollowingList from "./components/Profile/FollowingList";
-import ReviewList from "./components/Profile/ReviewList";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
-import PrivacyPolicyLink from "./components/PrivacyPolicy/PrivacyPolicyLink";
+import Login from "./components/Login/Login";
+import SignUp from "./components/Login/SignUp";
 
 
 function App() {
@@ -19,23 +17,18 @@ function App() {
         <Route path={["/", "/home"]} exact={true}>
           <Home />
         </Route>
-        <Route path={["/profile"]} exact={false}>
+        <Route path={["/profile/"]} exact={false}>
+          {/* dont forget to add :id to profile path*/}
           <Profile/>
-        </Route>
-        <Route path={["/profile/bookmarks"]} exact={true}>
-          <BookmarkList/>
-        </Route>
-        <Route path={["/profile/following"]} exact={true}>
-          <FollowingList/>
-        </Route>
-        <Route path={["/profile/reviews"]} exact={true}>
-          <ReviewList/>
         </Route>
         <Route path={"/privacypolicy"} exact={true}>
           <PrivacyPolicy/>
         </Route>
-        <Route path={"/"}>
-          <PrivacyPolicyLink/>
+        <Route path={["/login"]} exact={true}>
+          <Login/>
+        </Route>
+        <Route path={['/register']} exact={true}>
+          <SignUp/>
         </Route>
       </div>
     </BrowserRouter>
