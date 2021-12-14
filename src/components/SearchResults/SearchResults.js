@@ -8,7 +8,6 @@ import CatalogItem from "../Home/Catalog/CatalogItem";
 const SearchResults = () => {
     const [results, setResults] = useState([]);
     const params = useParams();
-    //console.log(params.searchTerm);
     useEffect( () => { findSearchResults(params.searchTerm).then(received => setResults(received))})
     return(
         <div className={"row"}>

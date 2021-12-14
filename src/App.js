@@ -7,8 +7,6 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/Login/SignUp";
 import Featured from "./components/Featured/Featured";
 import SearchResults from "./components/SearchResults/SearchResults";
-import MakeItem from "./components/ItemDetails/MakeItem";
-
 
 function App() {
   return (
