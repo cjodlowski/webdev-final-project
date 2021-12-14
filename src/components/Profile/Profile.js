@@ -40,11 +40,11 @@ const Profile = () => {
     const params = useParams();
     useEffect(() => {findUserbyId(params.id).then(result => setUser(result))});
     return (
-        <div className="row mt-3">
+        <div className="row mt-3 mb-3">
             <div className="col-4 ms-3 me-1">
                 <div className={"card bg-light card-profile-format override-bs"}>
                     <div className="card-header larger-text">Profile</div>
-                    <img className="mt-2 profile-image d-block mx-auto border" src="/images/spooder.jpg" alt="profile icon"/>
+                    <img className="mt-2 profile-image d-block mx-auto border" src={user.profile} alt="profile icon"/>
                     <div className="d-flex flex-column card-body">
                         <h5 className="card-title d-flex justify-content-center">{user.username}</h5>
                         <p className="card-text d-flex justify-content-center">{user.firstName}</p>

@@ -3,6 +3,13 @@
     width: min-content;
 }
 
+@-moz-document url-prefix() {
+    .card-img-height.override-bs {
+        max-height: 150px!important;
+        width: 100%;
+    }
+}
+
 .custom-border-light.override-bs {
     border-color: rgb(226,226,226);
 }
