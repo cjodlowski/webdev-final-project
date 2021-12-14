@@ -12,7 +12,7 @@ const Featured = () => {
             <div className={"row justify-content-center mt-3"}>
                 {
                     items.map((item, key) => {
-                        console.log(item);
+                        //console.log(item);
                         return <CatalogItem key={key} item={item} />
                     })
                 }

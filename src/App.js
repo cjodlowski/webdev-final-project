@@ -6,6 +6,7 @@ import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import Login from "./components/Login/Login";
 import SignUp from "./components/Login/SignUp";
 import Featured from "./components/Featured/Featured";
+import SearchResults from "./components/SearchResults/SearchResults";
 
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
         </Route>
         <Route path={["/featured"]} exact={true}>
           <Featured/>
+        </Route>
+        <Route path={["/search/:searchTerm"]} exact={true}>
+          <SearchResults />
         </Route>
         <Route path={["/profile/"]} exact={false}>
           {/* dont forget to add :id to profile path*/}

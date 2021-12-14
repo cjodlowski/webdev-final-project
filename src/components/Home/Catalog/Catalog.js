@@ -9,10 +9,10 @@ const Catalog = () => {
     useEffect(() => {findAllItems().then(received => setItems(received))})
     return(
         <>
-            <div className={"row justify-content-center"}>
+            <div className={"row"}>
                 {
                     items.map((item, key) => {
-                        console.log(item);
+                        //console.log(item);
                         return <CatalogItem key={key} item={item} />
                     })
                 }

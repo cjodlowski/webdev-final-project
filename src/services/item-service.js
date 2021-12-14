@@ -11,11 +11,6 @@ export const findFeatured = () => {
 }
 
 export const findSearchResults = (tags) => {
-    fetch("http://localhost:4000/api/items/search", {
-        method: 'GET',
-        body: JSON.stringify(tags),
-        headers: {
-            'content-type': 'application/json'
-        }
-    }).then(response => response.json());
+    return fetch(`http://localhost:4000/api/items/search/${tags}`)
+    .then(response => response.json());
 }
