@@ -12,7 +12,6 @@ const Catalog = () => {
             <div className={"row"}>
                 {
                     items.map((item, key) => {
-                        console.log(item);
                         return <CatalogItem key={key} item={item} />
                     })
                 }

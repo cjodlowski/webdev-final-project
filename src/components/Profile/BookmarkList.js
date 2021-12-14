@@ -9,16 +9,14 @@ const BookmarkList = () => {
     useEffect(() => {findAllItems().then(received => setItems(received))});
 
     return(
-        <div className="mx-2">
-            <h2>Bookmarks</h2>
-            <ul className="list-group">
+        <div className="mx-2 mt-3">
+            <div className={"row ms-3"}>
                 {
                     items.map((item, key) => {
-                        console.log(item);
                         return <CatalogItem key={key} item={item} />
                     })
                 }
-            </ul>
+            </div>
         </div>
     )
 }

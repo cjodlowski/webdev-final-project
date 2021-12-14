@@ -23,15 +23,16 @@ const CatalogItem = (
                     <p className="card-text">Flavor text maybe.</p>
                     <p className="card-text">{item.price}</p>
 
-                    <Link to="#" className="btn btn-secondary me-2 mb-2 mb-xxl-0"><i className={"fas" +
-                    " fa-cart-plus me-2"}/>Add to cart</Link>
+                    <Link to="#" className="btn btn-secondary me-2 mb-xxl-0">
+                        <i className={"fas fa-cart-plus me-2"}/>Add to cart</Link>
                     {/*<Link to={"#"} className={"btn btn-secondary me-2 mb-2 mb-xxl-0"}>*/}
                     {/*    <i className="fas fa-check me-2"/>Added to cart</Link>*/}
 
-                    <Link to="#" className="btn btn-secondary mb-2 mb-xxl-0"><i
-                        className="far fa-bookmark me-2"/>Bookmark</Link>
-                    {/*<Link to="#" className="btn btn-secondary mb-2 mb-xxl-0"><i*/}
-                    {/*    className="fas fa-bookmark me-2"/>Bookmarked</Link>*/}
+                    <Link to="#" className="btn btn-secondary mt-2 mt-xl-0" data-bs-toggle="tooltip" title="Add to Bookmarks!"><i
+                        className="far fa-bookmark"/></Link>
+                    {/*<Link to="#" className="btn btn-secondary mt-2 mt-xl-0"
+                     data-bs-toggle="tooltip" title="Remove from Bookmarks :("><i*/}
+                    {/*    className="fas fa-bookmark me-2"/></Link>*/}
                 </div>
             </div>
     )
