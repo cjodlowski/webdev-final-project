@@ -29,7 +29,7 @@ const ProfileTabs = (active) => {
                     <Link className={`nav-link ${active === 'selling' ? 'active' : ''}`} to={`/profile/${user._id}/selling`}>Now Selling</Link>
                 </li>
                 <li className={`nav-item`}>
-                    <Link className={`nav-link ${active === 'makeItem' ? 'active' : ''}`} to="/profile/makeItem">Create Item</Link>
+                    <Link className={`nav-link ${active === 'makeItem' ? 'active' : ''}`} to={`/profile/${user._id}/makeItem`}>Create Item</Link>
                 </li>
             </ul>
         </div>
@@ -69,7 +69,7 @@ const Profile = () => {
                     <ProfileTabs  user={user} active="selling"/>
                     <SellList />
                 </Route>
-                <Route path={["/profile/makeItem"]} exact={true}>
+                <Route path={["/profile/:id/makeItem"]} exact={true}>
                     <ProfileTabs active="makeItem"/>
                     <MakeItem />
                 </Route>
