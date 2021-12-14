@@ -13,23 +13,21 @@ import { findUserbyId } from "../../services/user-service";
 
 const ProfileTabs = (active) => {
     active = active.active;
-    const [user, setUser] = useState({});
     const params = useParams();
-    useEffect(() => {findUserbyId(params.id).then(result => setUser(result))});
     return (
         <div className={"card-header"}>
             <ul className="nav nav-tabs card-header-tabs justify-content-center">
                 <li className={`nav-item`}>
-                    <Link className= {` nav-link ${active === 'bookmarks' ? 'active' : ''}`} to={`/profile/${user._id}/bookmarks`}>Bookmarks</Link>
+                    <Link className= {` nav-link ${active === 'bookmarks' ? 'active' : ''}`} to={`/profile/${params.id}/bookmarks`}>Bookmarks</Link>
                 </li>
                 <li className={`nav-item`}>
-                    <Link className={`nav-link ${active === 'cart' ? 'active' : ''}`} to={`/profile/${user._id}/cart`}>Cart</Link>
+                    <Link className={`nav-link ${active === 'cart' ? 'active' : ''}`} to={`/profile/${params.id}/cart`}>Cart</Link>
                 </li>
                 <li className={`nav-item`}>
-                    <Link className={`nav-link ${active === 'selling' ? 'active' : ''}`} to={`/profile/${user._id}/selling`}>Now Selling</Link>
+                    <Link className={`nav-link ${active === 'selling' ? 'active' : ''}`} to={`/profile/${params.id}/selling`}>Now Selling</Link>
                 </li>
                 <li className={`nav-item`}>
-                    <Link className={`nav-link ${active === 'makeItem' ? 'active' : ''}`} to={`/profile/${user._id}/makeItem`}>Create Item</Link>
+                    <Link className={`nav-link ${active === 'makeItem' ? 'active' : ''}`} to={`/profile/${params.id}/makeItem`}>Create Item</Link>
                 </li>
             </ul>
         </div>
