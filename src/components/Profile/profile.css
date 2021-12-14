@@ -4,6 +4,9 @@
     width:128px;
 }
 
+.larger-text {
+    font-size: 22px;
+}
 
 .card-profile-format.override-bs {
     max-width: 30rem;

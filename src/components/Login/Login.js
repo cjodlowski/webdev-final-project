@@ -3,7 +3,10 @@ import {Link} from "react-router-dom";
 
 const Login = () => {
     return (
-        <div className={"my-3 mx-3"}>
+        <div className={"d-flex p-2"}>
+            <div className={"col-3"}/>
+            <div className={"container col-6"}>
+        <div className={"mx-3 my-3 card bg-light px-3 py-3"}>
             <h2>Log in:</h2>
             <div className="form-group">
                 <label for="exampleInputEmail1" className="form-label mt-4">Username</label>
@@ -19,6 +22,10 @@ const Login = () => {
             </div>
             <h3 className={"mt-3"}>Not an existing user?</h3>
             <Link to="/register"><p>Click here to sign up instead!</p></Link>
+        </div>
+            </div>
+
+            <div className={"col-3"}/>
         </div>
     )
 }

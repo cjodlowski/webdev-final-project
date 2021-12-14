@@ -33,22 +33,22 @@ const ProfileTabs = (active) => {
 }
 const Profile = () => {
     return (
-        <div className="row">
-            <div className="col-4 ms-2 mt-3">
-                <div className={"card bg-secondary text-white card-profile-format override-bs"}>
-                    <div className="card-header">Profile</div>
-                    <img className="card-img-top profile-image" src="..." alt="Card image cap"/>
-                    <div className="card-body">
-                        <h5 className="card-title">Username</h5>
-                        <p className="card-text">First name</p>
-                        <p className="card-text">Last name</p>
-                        <p className="card-text">Date of birth</p>
-                        <a href="#" className="btn btn-light me-2">Edit</a>
-                        <a href="#" className="btn btn-light me-2">Save</a>
+        <div className="row mt-3">
+            <div className="col-4 ms-2">
+                <div className={"card bg-light card-profile-format override-bs"}>
+                    <div className="card-header larger-text">Profile</div>
+                    <img className="mt-2 profile-image d-block mx-auto border" src="/images/spooder.jpg" alt="profile icon"/>
+                    <div className="d-flex flex-column card-body">
+                        <h5 className="card-title d-flex justify-content-center">Username</h5>
+                        <p className="card-text d-flex justify-content-center">First name</p>
+                        <p className="card-text d-flex justify-content-center">Last name</p>
+                        <p className="card-text d-flex justify-content-center">Date of birth</p>
+                        <a href="#" className="btn btn-primary mb-2">Edit</a>
+                        <a href="#" className="btn btn-primary mb-2">Save</a>
                     </div>
                 </div>
             </div>
-            <div className="card border-secondary col-7 mt-2 profile-section override-bs px-0 override-bs">
+            <div className="col-7 card bg-light profile-section override-bs px-0 override-bs">
                 <Route path={["/profile", "/profile/bookmarks"]} exact={true}>
                     <ProfileTabs active="bookmarks"/>
                     <BookmarkList />
