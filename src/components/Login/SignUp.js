@@ -6,7 +6,7 @@ const SignUp = () => {
         <div className={"d-flex p-2"}>
             <div className={"col-3"}/>
             <div className={"container col-6"}>
-                <div className={"mx-3 my-3 card bg-light login-width justify-content-center"}>
+                <div className={"mx-3 my-3 card bg-light px-3 py-3"}>
                     <h2>Sign up:</h2>
                     <div className="form-group">
                         <label for="exampleInputEmail1" className="form-label mt-1">Username</label>
