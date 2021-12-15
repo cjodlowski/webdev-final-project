@@ -19,12 +19,26 @@ const CatalogItem = (
     const [linkid, setLink] = useState("");
     //console.log(item.seller);
     useEffect(() => {findUserbyUN(item.seller).then(result => setUser(result));});
-    useEffect(() => {console.log(user)}, [user]);
     useEffect(() => {
         if(user != null) {
             setLink(user._id)
         }
     }, [user]);
+
+    const [loggedUser, setLoggedIn] = useState({});
+    const [bookmarks, setBookmarks] = useState([]);
+
+    useEffect(() => {findLoggedIn().then(result => setLoggedIn(result));});
+    useEffect(() => {
+        if(user != null) {
+            if(user.bookmarks != null && user.bookmarks.size != 0) {
+                findFiltered(loggedUser.bookmarks).then(result => setBookmarks(result));
+                console.log(loggedUser.username);
+                console.log(bookmarks);
+            }
+        }
+    }, [loggedUser]);
+
 
     const formatCurrency = (price = 1.01) => {
         let num = price.toLocaleString('en-US', {minimumFractionDigits: 2});
@@ -47,7 +61,6 @@ const CatalogItem = (
                     <h5 className="card-title ms-2">{item.title}</h5>
                     <ul className={"list-group list-group-flush custom-border-light override-bs"}>
                         <li className="list-group-item">${formatCurrency(item.price)}</li>
-                        <li className="list-group-item">Flavor text maybe.</li>
                     </ul>
                 <div className="card-body d-flex flex-column">
                     <Link to="#" className="btn btn-secondary align-content-end mt-auto mb-2" data-bs-toggle={"tooltip"} title={"Add to cart!"}>

@@ -21,7 +21,7 @@ export const findItemById = (id) => {
 }
 
 export const findFiltered = (idarr) => {
-    //console.log(idarr);
+    //wconsole.log(idarr);
     const requestOptions = {
         method: 'POST',
         body: JSON.stringify(idarr),
