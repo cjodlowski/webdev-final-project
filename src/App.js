@@ -41,6 +41,9 @@ function App() {
         <Route path={['/register']} exact={true}>
           <SignUp/>
         </Route>
+        <Route path={['/details']} exact={true}>
+          <details/>
+        </Route>
       </div>
     </BrowserRouter>
   );

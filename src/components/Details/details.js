@@ -1,32 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "./details.css"
-import CatalogItem from "./CatalogItem"
+import {Link, Route, useParams} from "react-router-dom";
+import {findItemById} from "../../services/item-service";
 
-import {findAllItems} from "../../../services/item-service"
-
-
-//needs to be changed but if 'More Details' is clicked, will take the item and get the name, image, seller's name, desc., and cost
 
 const details = () => {
-    return (
-        <div className="row mt-3">
-            <div className="col-4 ms-2">
-                <div className={"card bg-light card-profile-format override-bs"}>
-                    <div className="card-header larger-text">get.Name == Name </div> //get item name
-                    <img className="mt-2 profile-image d-block mx-auto border" src="/images/spooder.jpg" alt="item icon"/> //get item image
-                    <div className="d-flex flex-column card-body">
-                        <h5 className="card-title d-flex justify-content-center">//get.Seller == ID</h5> //get Seller name
-                        <p className="card-text d-flex justify-content-center">get.Description == ID</p> //Show Description (SECRET FIELD only shown in details page)
-                        <p className="card-text d-flex justify-content-center">get.Cost == ID</p> //Get cost of item
-                    </div>
+    const [item, setItem] = useState({});
+    const params = useParams();
+    useEffect(() => {findItemById(params.id).then(result => setItem(result))}, [item]);
+        return(
+            <div className={"card bg-light card-profile-format override-bs"}>
+                <div className="card-header larger-text">{details()}</div>
+                <div className="card-header larger-text">{item.title}</div>
+                <img className="mt-2 profile-image d-block mx-auto border" src={item.image} alt="profile icon"/>
+                <div className="d-flex flex-column card-body">
+                    <h5 className="card-title d-flex justify-content-center">{item.price}</h5>
+                    <p className="card-text d-flex justify-content-center">{item.seller}</p>
+                    <p className="card-text d-flex justify-content-center">{item.rating}</p>
+                    <p className="card-text d-flex justify-content-center">{item.desc}</p>
                 </div>
-            </div>
-            )
-            }
+            </div>);
+    }
 
 
-        </>
-    )
-}
+
 
 export default details;
