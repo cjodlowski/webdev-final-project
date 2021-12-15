@@ -49,7 +49,7 @@ const CatalogItem = (
     }
 
     let itemIsBookmarked = false;
-
+    
     return(
             <>
                 <div className={"me-3 mb-3 col-3 card border-secondary px-0 override-bs"}>

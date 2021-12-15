@@ -27,10 +27,12 @@ const ProfileTabs = (active) => {
                         <Link className={`nav-link ${active === 'cart' ? 'active' : ''}`} to={`/profile/${params.id}/cart`}>Cart</Link>
                     </li>
                 </span>
-                <span className={ user.role !== 'SELLER' || user.loggedIn !== true ? 'visually-hidden' : '' }>
+                <span className={ user.role === 'BUYER' ? 'visually-hidden' : '' }>
                     <li className={`nav-item`}>
                         <Link className={`nav-link ${active === 'selling' ? 'active' : ''}`} to={`/profile/${params.id}/selling`}>Now Selling</Link>
                     </li>
+                </span>
+                <span className={ user.role === 'BUYER' || user.loggedIn !== true ? 'visually-hidden' : '' }>
                     <li className={`nav-item`}>
                         <Link className={`nav-link ${active === 'makeItem' ? 'active' : ''}`} to={`/profile/${params.id}/makeItem`}>Create Item</Link>
                     </li>
