@@ -6,7 +6,7 @@ import {findAllItems} from "../../../services/item-service"
 
 const Catalog = () => {
     const [items, setItems] = useState([]);
-    useEffect(() => {findAllItems().then(received => setItems(received))})
+    useEffect(() => {findAllItems().then(received => setItems(received))}, [items]);
     return(
         <div className={"row"}>
             <div className={"col-2"}/>

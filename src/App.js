@@ -7,6 +7,7 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/Login/SignUp";
 import Featured from "./components/Featured/Featured";
 import SearchResults from "./components/SearchResults/SearchResults";
+import Logout from "./components/Login/Logout";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <Route path={["/login"]} exact={true}>
           <Login/>
+        </Route>
+        <Route path={["/logout/:id"]} exact={true}>
+          <Logout/>
         </Route>
         <Route path={['/register']} exact={true}>
           <SignUp/>

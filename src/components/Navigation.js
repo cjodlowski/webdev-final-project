@@ -1,13 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom"
-import $ from "jquery/dist/jquery";
+import React, {useEffect, useState} from "react";
+import {Link, useParams} from "react-router-dom"
 import "bootstrap/js/src/dropdown";
 import "../vendors/bootstrap/bootstrap.min.css"
 import "../vendors/fontawesome/css/all.css"
 
 import SearchBar from "./SearchBar";
+import {findLoggedUser} from "../services/user-service";
 
 const Navigation = (active = 'featured') => {
+    const [user, setUser] = useState({});
+    const params = useParams();
+    useEffect(() => {findLoggedUser().then(result => setUser(result))});
     return (
         <nav className="navbar navbar-expand navbar-dark bg-primary">
             <div className="container-fluid d-flex flex-row">
@@ -35,21 +38,34 @@ const Navigation = (active = 'featured') => {
                         <SearchBar/>
                     </div>
                     <div className="col-4 mb-3 mt-3 btn-group me-2" role="group">
-                            <Link to="/profile">
+                            <Link to={() => {
+                                if (user !== null) {
+                                    return(`/profile/${user._id}`);
+                                } else {
+                                    return(`/login`);
+                                }
+                            }}>
                                 <button type="button" className="btn btn-light button-group-border override-bs">Profile</button>
                             </Link>
                         <button type="button"
-                                className="btn btn-light dropdown-toggle dropdown-toggle-split"
-                                 data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                                className="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent"    >
                             <span className="sr-only">Toggle Dropdown</span>
                         </button>
                             <div className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownRef">
                                 <Link to="/login" className={"remove-decorations override-bs"}>
-                                    <span className="dropdown-item">Log in</span>
+                                    <span className={`dropdown-item ${
+                                        user !== null ? 'visually-hidden' : ''
+                                    }`}>Log in</span>
                                 </Link>
-                                <Link to="/register" className={"remove-decorations override-bs"}>
-                                    <span className="dropdown-item">Sign up</span>
+                                <Link to={`/logout/${
+                                    user !== null ? `${user._id}` : "" 
+                                }`} className={"remove-decorations override-bs"}>
+                                    <span className={
+                                        `dropdown-item ${user === null ? 'visually-hidden' : ''
+                                        }`}>Log out</span>
+                                </Link>
+                                <Link to="/register" className={`remove-decorations override-bs`}>
+                                    <span className={`dropdown-item ${user !== null ? 'visually-hidden' : ''}`}>Sign up</span>
                                 </Link>
                             </div>
                         </div>
