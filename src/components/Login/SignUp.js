@@ -10,10 +10,6 @@ const SignUp = () => {
     const [phoneNO, setPhoneNO] = useState('');
     const [acctType, setAcctType] = useState('');
 
-    useEffect(  () => {
-        window.location = "/login"}, []
-    )
-
     const createUser = () => {
         let user = {
             username : username,
@@ -29,6 +25,7 @@ const SignUp = () => {
             profile : "/images/spooder.jpg",
             phone : phoneNO
         }
+        window.location = "/login";
         createNewUser(user);
     }
 
