@@ -7,6 +7,10 @@
     font-weight: bold;
 }
 
+.gold-star.override-bs {
+    color : rgb(212, 175, 55);
+}
+
 .custom-border-light.override-bs {
     border-color: rgb(226,226,226);
 }

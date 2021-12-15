@@ -41,7 +41,6 @@ const CatalogItem = (
                     <h5 className="card-title ms-2">{item.title}</h5>
                     <ul className={"list-group list-group-flush custom-border-light override-bs"}>
                         <li className="list-group-item">${formatCurrency(item.price)}</li>
-                        <li className="list-group-item">Flavor text maybe.</li>
                     </ul>
                 <div className="card-body d-flex flex-column">
                     <Link to="#" className="btn btn-secondary align-content-end mt-auto mb-2" data-bs-toggle={"tooltip"} title={"Add to cart!"}>
