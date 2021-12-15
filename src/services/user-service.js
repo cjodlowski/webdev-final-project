@@ -7,3 +7,7 @@ export const findUserbyId = (id) => {
 export const findLoggedIn = () => {
     return fetch(`http://localhost:4000/api/usersloggedin/`).then(response => {return response.json();});
 }
+
+export const addItemToList = () => {
+    
+}

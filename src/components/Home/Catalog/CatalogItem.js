@@ -17,7 +17,7 @@ const CatalogItem = (
     item = item.item;
     const [user, setUser] = useState({});
     const [bookmarks, setBookmark] = useState([]);
-    //useEffect(() => { findLoggedIn().then(result => setUser(result));});
+    //useEffect(() => { findLoggedIn().then(result => setUser(result));}, [user]);
     //useEffect(() => {findFiltered(user.bookmarks).then(result => setBookmark(result))}, [user.bookmarks]);
     let itemIsBookmarked = bookmarks.includes(item._id);
     //console.log(bookmarks);
@@ -26,6 +26,10 @@ const CatalogItem = (
         let num = price.toLocaleString('en-US', {minimumFractionDigits: 2});
         return(num);
     };
+
+    const addBookmark = () => {
+
+    }
 
     return(
             <>
@@ -48,7 +52,8 @@ const CatalogItem = (
                     {/*    <i className="fas fa-check me-2"/>Added to cart</Link>*/}
 
                     <Link to="#" className={`btn btn-secondary align-content-end
-                    ${itemIsBookmarked ? 'd-none' : ''}`} data-bs-toggle="tooltip" title="Add to Bookmarks!"><i
+                    ${itemIsBookmarked ? 'd-none' : ''}`} data-bs-toggle="tooltip" title="Add to Bookmarks!"
+                    onClick={addBookmark()}><i
                         className="far fa-bookmark"/></Link>
                     <Link to="#" className={`btn btn-secondary align-content-end ${itemIsBookmarked ? '' : 'd-none'}`} data-bs-toggle="tooltip" title="Remove from Bookmarks :("><i
                         className="fas fa-bookmark"/></Link>
