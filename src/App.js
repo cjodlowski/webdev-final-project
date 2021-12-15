@@ -30,7 +30,6 @@ function App() {
           <SearchResults />
         </Route>
         <Route path={["/profile/:id"]} exact={false}>
-          {/* dont forget to add :id to profile path*/}
           <Profile/>
         </Route>
         <Route path={"/privacypolicy"} exact={true}>
@@ -46,7 +45,7 @@ function App() {
           <SignUp/>
         </Route>
 
-        <Route path={['/Details']} exact={true}>
+        <Route path={['/details/:id']} exact={true}>
           <Details/>
         </Route>
       </div>

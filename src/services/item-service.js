@@ -16,7 +16,7 @@ export const findSearchResults = (tags) => {
 }
 
 export const findItemById = (id) => {
-    return fetch(`http://localhost:4000/api/items/${id}`)
+    return fetch(`http://localhost:4000/api/items/id/${id}`)
     .then(response => response.json());
 }
 

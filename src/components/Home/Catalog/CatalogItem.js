@@ -17,7 +17,6 @@ const CatalogItem = (
     item = item.item;
     const [user, setUser] = useState({});
     const [linkid, setLink] = useState("");
-    //console.log(item.seller);
     useEffect(() => {findUserbyUN(item.seller).then(result => setUser(result));});
     useEffect(() => {
         if(user != null) {
