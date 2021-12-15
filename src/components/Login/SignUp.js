@@ -10,9 +10,9 @@ const SignUp = () => {
     const [phoneNO, setPhoneNO] = useState('');
     const [acctType, setAcctType] = useState('');
 
-    // useEffect(  () => {
-    //     window.location = "/login"}, []
-    // )
+    useEffect(  () => {
+        window.location = "/login"}, []
+    )
 
     const createUser = () => {
         let user = {
