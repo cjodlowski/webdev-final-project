@@ -53,6 +53,26 @@ export const findLoggedIn = () => {
     return fetch(`http://localhost:4000/api/usersloggedin/`).then(response => {return response.json();});
 }
 
-export const addItemToList = () => {
-    
+export const updateUser = (id, user) => {
+    const req = {
+        method: 'PUT',
+        body: JSON.stringify(user),
+        headers: {
+            'content-type': 'application/json'
+        }
+    }
+    return fetch(`http://localhost:4000/api/users/${id}`, req)
+    .then(response => response.json());
+}
+
+export const addItemToList = (id, itemlist) => {
+    const req = {
+        method: 'POST',
+        body: JSON.stringify(itemlist),
+        headers: {
+            'content-type': 'application/json'
+        }
+    }
+    return fetch(`http://localhost:4000/api/users/addItem/${id}`, req)
+    .then(response => response.json());
 }

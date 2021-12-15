@@ -1,11 +1,40 @@
 import React, {useEffect, useState} from "react";
-import CatalogItem from "../Home/Catalog/CatalogItem";
-import {findAllItems} from "../../services/item-service";
-import {Link} from "react-router-dom";
+import { useParams } from "react-router-dom";
 
+import { findUserbyId, addItemToList } from "../../services/user-service";
+import { createNewItem } from "../../services/item-service";
 const MakeItem = () => {
-    const [items, setItems] = useState([]);
-    useEffect(() => {findAllItems().then(received => setItems(received))});
+    
+    const [user, setUser] = useState({});
+    const [item, setItem] = useState({});
+    const params = useParams();
+    const findUser = () => {console.log("Click find user"); findUserbyId(params.id).then(result => setUser(result))};
+
+    const [title, setTitle] = useState("");
+    const [price, setPrice] = useState(0);
+    const [tags, setTags] = useState("");
+
+    useEffect(() => {
+        findUser();
+    }, [user]);
+
+    useEffect(() => {
+        addItemToList(user._id, {iid:item._id, list: "selling"});
+    }, [item]);
+
+    const createItem = () => {
+        let newitem = {
+            title: title,
+            price: price,
+            image: "/images/shoppingcart.webp",
+            rating: 0,
+            tags: tags.split(" "),
+            featured: false,
+            seller : user.username
+        }
+       // findUser();
+        createNewItem(newitem).then(result => setItem(result));
+    }
 
     return (
         <div className={"d-flex p-2"}>
@@ -15,28 +44,27 @@ const MakeItem = () => {
                     <div className="form-group">
                         <label htmlFor="newTitle"
                                className="form-label mt-4">New item name</label>
-                        <input type="title" className="form-control" id="newTitle"
+                        <input onChange={(e) => setTitle(e.target.value)} value={title} type="title" className="form-control" id="newTitle"
                                aria-describedby="emailHelp" placeholder="Enter name"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="newItemPrice"
                                className="form-label mt-4">Selling price</label>
-                        <input type="price" className="form-control" id="newItemPrice"
+                        <input onChange={(e) => setPrice(e.target.value)} value={price} type="price" className="form-control" id="newItemPrice"
                                placeholder="Enter price"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="newItemTags" className="form-label mt-4" data-bs-toggle={"tooltip"} title={"Please enter a list separated by spaces!"}>Item tags</label>
-                        <input type="tags" className="form-control" id="newItemTags"
+                        <input onChange={(e) => setTags(e.target.value)} value={tags} type="tags" className="form-control" id="newItemTags"
                                placeholder="Enter tags"  data-bs-toggle={"tooltip"} title={"Please enter a list separated by spaces!"}/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="formFile" className="form-label mt-4">Profile picture</label>
+                        <label htmlFor="formFile" className="form-label mt-4">Item picture</label>
                         <input className="form-control" type="file" id="formFile"/>
                     </div>
                     <div className={"mt-2"}>
                         {/* Update User in DB here */}
-                        <button onClick={() => {
-                        }} className={"btn btn-secondary my-2"}>Create Listing
+                        <button onClick={() => {createItem()}} className={"btn btn-secondary my-2"}>Create Listing
                         </button>
                     </div>
                 </div>

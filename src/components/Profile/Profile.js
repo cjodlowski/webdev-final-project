@@ -9,7 +9,7 @@ import CartList from "./CartList";
 import SellList from "./SellList";
 import MakeItem from "../ItemDetails/MakeItem";
 
-import { findUserbyId } from "../../services/user-service";
+import { findUserbyId, updateUser} from "../../services/user-service";
 
 const ProfileTabs = (active) => {
     active = active.active;
@@ -39,8 +39,21 @@ const ProfileTabs = (active) => {
 const EditProfile = (active) => {
     active = active.active;
     const [user, setUser] = useState({});
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [phoneNO, setPhoneNO] = useState('');
     const params = useParams();
     useEffect(() => {findUserbyId(params.id).then(result => setUser(result))}, [user]);
+
+    const updateThisUser = () => {
+        let update = {
+            firstName : firstName,
+            lastName : lastName,
+            phone : phoneNO
+        }
+
+        updateUser(params.id, update)
+    }
 
     if (active !== 'edit' && user.loggedIn) {
         return(
@@ -51,18 +64,18 @@ const EditProfile = (active) => {
                 <h5 className="card-title d-flex justify-content-center">{user.username}</h5>
                 <div className="form-group mt-3">
                     <label htmlFor="newFirstName" className="form-label">Change first name to:</label>
-                    <input type="email" className="form-control" id="newFirstName" aria-describedby="emailHelp" placeholder="Enter new first name"/>
+                    <input onChange={(e) => setFirstName(e.target.value)} value={firstName} type="email" className="form-control" id="newFirstName" aria-describedby="emailHelp" placeholder="Enter new first name"/>
                 </div>
                 <div className="form-group mt-3">
                     <label htmlFor="newLastName" className="form-label">Change last name to:</label>
-                    <input type="password" className="form-control" id="newLastName" placeholder="Enter new last name"/>
+                    <input onChange={(e) => setLastName(e.target.value)} value={lastName} type="email" className="form-control" id="newLastName" placeholder="Enter new last name"/>
                 </div>
                 <div className="form-group mt-3">
                     <label htmlFor="newPhoneNumber" className="form-label">Change phone number to:</label>
-                    <input type="password" className="form-control" id="newPhoneNumber" placeholder="Enter new phone number"/>
+                    <input onChange={(e) => setPhoneNO(e.target.value)} value={phoneNO} type="email" className="form-control" id="newPhoneNumber" placeholder="Enter new phone number"/>
                 </div>
                 <p className="card-text d-flex my-3">Date of birth</p>
-                <Link to={`/profile/${params.id}`} className={`btn btn-primary mb-2`}>Save</Link>
+                <Link to={`/profile/${params.id}`} className={`btn btn-primary mb-2`} onClick={() => updateThisUser()}>Save</Link>
             </div>
         </div>);
     } else {

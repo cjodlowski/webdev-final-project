@@ -32,4 +32,16 @@ export const findFiltered = (idarr) => {
     return fetch(`http://localhost:4000/api/items/filtered`, requestOptions).then(response => response.json());
 }
 
+export const createNewItem = (item) => {
+    const req = {
+        method: "POST",
+        body: JSON.stringify(item),
+        headers: {
+            'content-type': 'application/json'
+        }
+    };
+    return fetch(`http://localhost:4000/api/items`, req)
+        .then(response => response.json());
+}
+
 

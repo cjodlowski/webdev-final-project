@@ -9,8 +9,9 @@ const SellList = () => {
     const [user, setUser] = useState({});
     const [selling, setSelling] = useState([]);
     const params = useParams();
-    useEffect(() => { findUserbyId(params.id).then(result => setUser(result)) }, [user]);
-    useEffect(() => {findFiltered(user.selling).then(result => setSelling(result))}, [user.selling, selling]);
+    useEffect(() => { findUserbyId(params.id).then(result => setUser(result))});
+    useEffect(() => {findFiltered(user.selling).then(result => setSelling(result)); console.log(selling)}, [user]);
+
     return(
         <>
             <div className="mx-2 mt-3 container">
