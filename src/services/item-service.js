@@ -11,7 +11,7 @@ export const findFeatured = () => {
 }
 
 export const findSearchResults = (tags) => {
-    return fetch(`http://localhost:4000/api/items/search/id/${tags}`)
+    return fetch(`http://localhost:4000/api/items/search/${tags}`)
     .then(response => response.json());
 }
 
@@ -21,6 +21,7 @@ export const findItemById = (id) => {
 }
 
 export const findFiltered = (idarr) => {
+    //console.log(idarr);
     const requestOptions = {
         method: 'POST',
         body: JSON.stringify(idarr),
@@ -30,3 +31,5 @@ export const findFiltered = (idarr) => {
     };
     return fetch(`http://localhost:4000/api/items/filtered`, requestOptions).then(response => response.json());
 }
+
+

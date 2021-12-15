@@ -13,7 +13,6 @@ import { findUserbyId } from "../../services/user-service";
 
 const ProfileTabs = (active) => {
     active = active.active;
-    const [user, setUser] = useState({});
     const params = useParams();
     useEffect(() => {findUserbyId(params.id).then(result => setUser(result))}, [user]);
     return (

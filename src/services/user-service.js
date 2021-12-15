@@ -3,6 +3,7 @@ export const findUserbyId = (id) => {
     return fetch(`http://localhost:4000/api/users/${id}`)
     .then(response => response.json());
 }
+
 export const findUserbyUN = (UN) => {
     return fetch(`http://localhost:4000/api/users/un/${UN}`)
     .then(response => response.json());
@@ -46,4 +47,8 @@ export const logUserOut = (id) => {
     };
     return fetch(`http://localhost:4000/api/users/logout/${id}`, req)
         .then(response => response.json());
+}
+
+export const findLoggedIn = () => {
+    return fetch(`http://localhost:4000/api/usersloggedin/`).then(response => {return response.json();});
 }

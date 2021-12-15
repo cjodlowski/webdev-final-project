@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 
+import {findFiltered } from "../../../services/item-service";
+import  {findLoggedIn} from "../../../services/user-service";
 const CatalogItem = (
                          item = {
                              title: "item",
@@ -13,6 +15,13 @@ const CatalogItem = (
                          }
                      ) => {
     item = item.item;
+    const [user, setUser] = useState({});
+    const [bookmarks, setBookmark] = useState([]);
+    //useEffect(() => { findLoggedIn().then(result => setUser(result));});
+    //useEffect(() => {findFiltered(user.bookmarks).then(result => setBookmark(result))}, [user.bookmarks]);
+    let itemIsBookmarked = bookmarks.includes(item._id);
+    //console.log(bookmarks);
+    //console.log(item._id, itemIsBookmarked);
     const formatCurrency = (price = 1.01) => {
         let num = price.toLocaleString('en-US', {minimumFractionDigits: 2});
         return(num);
@@ -30,7 +39,6 @@ const CatalogItem = (
                         <li className="list-group-item">${formatCurrency(item.price)}</li>
                         <li className="list-group-item">Flavor text maybe.</li>
                     </ul>
-
                 <div className="card-body d-flex flex-column">
                     <Link to="#" className="btn btn-secondary align-content-end mt-auto mb-2" data-bs-toggle={"tooltip"} title={"Add to cart!"}>
                         <i className={"fas fa-cart-plus me-2"}/></Link>
@@ -38,11 +46,11 @@ const CatalogItem = (
                      data-bs-toggle={"tooltip"} title={"Remove from to cart :("}>*/}
                     {/*    <i className="fas fa-check me-2"/>Added to cart</Link>*/}
 
-                    <Link to="#" className="btn btn-secondary align-content-end" data-bs-toggle="tooltip" title="Add to Bookmarks!"><i
+                    <Link to="#" className={`btn btn-secondary align-content-end
+                    ${itemIsBookmarked ? 'd-none' : ''}`} data-bs-toggle="tooltip" title="Add to Bookmarks!"><i
                         className="far fa-bookmark"/></Link>
-                    {/*<Link to="#" className="btn btn-secondary"
-                     data-bs-toggle="tooltip" title="Remove from Bookmarks :("><i*/}
-                    {/*    className="fas fa-bookmark me-2"/></Link>*/}
+                    <Link to="#" className={`btn btn-secondary align-content-end ${itemIsBookmarked ? '' : 'd-none'}`} data-bs-toggle="tooltip" title="Remove from Bookmarks :("><i
+                        className="fas fa-bookmark"/></Link>
                 </div>
             </div>
             </>
