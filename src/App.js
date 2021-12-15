@@ -7,7 +7,11 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/Login/SignUp";
 import Featured from "./components/Featured/Featured";
 import SearchResults from "./components/SearchResults/SearchResults";
+
 import Logout from "./components/Login/Logout";
+
+import Details from "./components/Details/Details";
+
 
 function App() {
   return (
@@ -40,6 +44,10 @@ function App() {
         </Route>
         <Route path={['/register']} exact={true}>
           <SignUp/>
+        </Route>
+
+        <Route path={['/Details']} exact={true}>
+          <Details/>
         </Route>
       </div>
     </BrowserRouter>
