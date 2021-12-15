@@ -39,7 +39,7 @@ const Navigation = (active = 'featured') => {
                     </div>
                     <div className="col-4 mb-3 mt-3 btn-group me-2" role="group">
                             <Link to={() => {
-                                if (user !== null) {
+                                if (user !== null && user !== undefined) {
                                     return(`/profile/${user._id}`);
                                 } else {
                                     return(`/login`);

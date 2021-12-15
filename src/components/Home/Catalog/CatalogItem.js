@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 
-import {findFiltered, findItemById} from "../../../services/item-service";
+import {findFiltered} from "../../../services/item-service";
 import  {findLoggedIn, findUserbyUN} from "../../../services/user-service";
 const CatalogItem = (
                          item = {
@@ -19,7 +19,7 @@ const CatalogItem = (
     const [linkid, setLink] = useState("");
     useEffect(() => {findUserbyUN(item.seller).then(result => setUser(result));}, [item]);
     useEffect(() => {
-        if(user != null) {
+        if(user !== null && user!== undefined) {
             setLink(user._id)
         }
     }, [user]);
@@ -29,14 +29,14 @@ const CatalogItem = (
 
     useEffect(() => {findLoggedIn().then(result => setLoggedIn(result));});
     useEffect(() => {
-        if(user != null) {
+        if(user !== null && user !== undefined) {
             if(user.bookmarks != null && user.bookmarks.size != 0) {
                 findFiltered(loggedUser.bookmarks).then(result => setBookmarks(result));
                 console.log(loggedUser.username);
                 console.log(bookmarks);
             }
         }
-    }, [loggedUser]);
+    }, []);
 
 
     const formatCurrency = (price = 1.01) => {

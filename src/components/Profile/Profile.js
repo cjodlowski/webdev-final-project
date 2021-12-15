@@ -15,22 +15,26 @@ const ProfileTabs = (active) => {
     active = active.active;
     const [user, setUser] = useState({});
     const params = useParams();
-    useEffect(() => {findUserbyId(params.id).then(result => setUser(result))}, [user]);
+    useEffect(() => {findUserbyId(params.id).then(result => setUser(result))}, []);
     return (
         <div className={"card-header"}>
             <ul className="nav nav-tabs card-header-tabs justify-content-center">
                 <li className={`nav-item`}>
                     <Link className= {` nav-link ${active === 'bookmarks' ? 'active' : ''}`} to={`/profile/${params.id}/bookmarks`}>Bookmarks</Link>
                 </li>
-                <li className={`nav-item`}>
-                    <Link className={`nav-link ${active === 'cart' ? 'active' : ''}`} to={`/profile/${params.id}/cart`}>Cart</Link>
-                </li>
-                <li className={`nav-item`}>
-                    <Link className={`nav-link ${active === 'selling' ? 'active' : ''}`} to={`/profile/${params.id}/selling`}>Now Selling</Link>
-                </li>
-                <li className={`nav-item`}>
-                    <Link className={`nav-link ${active === 'makeItem' ? 'active' : ''}`} to={`/profile/${params.id}/makeItem`}>Create Item</Link>
-                </li>
+                <span className={ user.loggedIn !== true ? 'visually-hidden' : '' }>
+                    <li className={`nav-item`}>
+                        <Link className={`nav-link ${active === 'cart' ? 'active' : ''}`} to={`/profile/${params.id}/cart`}>Cart</Link>
+                    </li>
+                </span>
+                <span className={ user.role !== 'SELLER' || user.loggedIn !== true ? 'visually-hidden' : '' }>
+                    <li className={`nav-item`}>
+                        <Link className={`nav-link ${active === 'selling' ? 'active' : ''}`} to={`/profile/${params.id}/selling`}>Now Selling</Link>
+                    </li>
+                    <li className={`nav-item`}>
+                        <Link className={`nav-link ${active === 'makeItem' ? 'active' : ''}`} to={`/profile/${params.id}/makeItem`}>Create Item</Link>
+                    </li>
+                </span>
             </ul>
         </div>
     )
@@ -43,7 +47,7 @@ const EditProfile = (active) => {
     const [lastName, setLastName] = useState('');
     const [phoneNO, setPhoneNO] = useState('');
     const params = useParams();
-    useEffect(() => {findUserbyId(params.id).then(result => setUser(result))}, [user]);
+    useEffect(() => {findUserbyId(params.id).then(result => setUser(result))}, []);
 
     const updateThisUser = () => {
         let update = {
@@ -64,21 +68,22 @@ const EditProfile = (active) => {
                 <h5 className="card-title d-flex justify-content-center">{user.username}</h5>
                 <div className="form-group mt-3">
                     <label htmlFor="newFirstName" className="form-label">Change first name to:</label>
-                    <input onChange={(e) => setFirstName(e.target.value)} value={firstName} type="email" className="form-control" id="newFirstName" aria-describedby="emailHelp" placeholder="Enter new first name"/>
+                    <input onChange={(e) => setFirstName(e.target.value)} value={firstName} type="email" className="form-control" id="newFirstName" aria-describedby="emailHelp" placeholder={user.firstName}/>
                 </div>
                 <div className="form-group mt-3">
                     <label htmlFor="newLastName" className="form-label">Change last name to:</label>
-                    <input onChange={(e) => setLastName(e.target.value)} value={lastName} type="email" className="form-control" id="newLastName" placeholder="Enter new last name"/>
+                    <input onChange={(e) => setLastName(e.target.value)} value={lastName} type="email" className="form-control" id="newLastName" placeholder={user.lastName}/>
                 </div>
                 <div className="form-group mt-3">
                     <label htmlFor="newPhoneNumber" className="form-label">Change phone number to:</label>
-                    <input onChange={(e) => setPhoneNO(e.target.value)} value={phoneNO} type="email" className="form-control" id="newPhoneNumber" placeholder="Enter new phone number"/>
+                    <input onChange={(e) => setPhoneNO(e.target.value)} value={phoneNO} type="email" className="form-control" id="newPhoneNumber" placeholder={user.phone}/>
                 </div>
                 <p className="card-text d-flex my-3">Date of birth</p>
                 <Link to={`/profile/${params.id}`} className={`btn btn-primary mb-2`} onClick={() => updateThisUser()}>Save</Link>
             </div>
         </div>);
-    } else {
+    }
+    else {
         return(
         <div className={"card bg-light card-profile-format override-bs"}>
             <div className="card-header larger-text">Profile</div>
@@ -99,7 +104,7 @@ const EditProfile = (active) => {
 const Profile = () => {
     const [user, setUser] = useState({});
     const params = useParams();
-    useEffect(() => {findUserbyId(params.id).then(result => setUser(result))}, [user]);
+    useEffect(() => {findUserbyId(params.id).then(result => setUser(result))}, []);
     return (
         <div className="row mt-3 mb-3">
             <div className="col-4 ms-3 me-1">

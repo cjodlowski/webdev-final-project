@@ -8,7 +8,7 @@ const MakeItem = () => {
     const [user, setUser] = useState({});
     const [item, setItem] = useState({});
     const params = useParams();
-    const findUser = () => {console.log("Click find user"); findUserbyId(params.id).then(result => setUser(result))};
+    const findUser = () => {findUserbyId(params.id).then(result => setUser(result))};
 
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState(0);
@@ -32,7 +32,7 @@ const MakeItem = () => {
             featured: false,
             seller : user.username
         }
-       // findUser();
+
         createNewItem(newitem).then(result => setItem(result));
     }
 
@@ -63,7 +63,6 @@ const MakeItem = () => {
                         <input className="form-control" type="file" id="formFile"/>
                     </div>
                     <div className={"mt-2"}>
-                        {/* Update User in DB here */}
                         <button onClick={() => {createItem()}} className={"btn btn-secondary my-2"}>Create Listing
                         </button>
                     </div>
