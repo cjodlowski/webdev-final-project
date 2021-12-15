@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 
-import {findFiltered } from "../../../services/item-service";
+import {findFiltered, findItemById} from "../../../services/item-service";
 import  {findLoggedIn, findUserbyUN} from "../../../services/user-service";
 const CatalogItem = (
                          item = {
@@ -17,7 +17,7 @@ const CatalogItem = (
     item = item.item;
     const [user, setUser] = useState({});
     const [linkid, setLink] = useState("");
-    useEffect(() => {findUserbyUN(item.seller).then(result => setUser(result));});
+    useEffect(() => {findUserbyUN(item.seller).then(result => setUser(result));}, [item]);
     useEffect(() => {
         if(user != null) {
             setLink(user._id)
@@ -57,7 +57,9 @@ const CatalogItem = (
                     <h6 className={"mb-0 seller-link"}>{item.seller}</h6>
                 </Link>
                     <img className="card-img-top card-img-height my-2 mx-auto d-block override-bs" src={item.image} alt="shop item"/>
-                    <h5 className="card-title ms-2">{item.title}</h5>
+                    <Link className={"card-title remove-decorations override-bs"} to={`details/${item._id}`}>
+                        <h5 className="card-title ms-2">{item.title}</h5>
+                    </Link>
                     <ul className={"list-group list-group-flush custom-border-light override-bs"}>
                         <li className="list-group-item">${formatCurrency(item.price)}</li>
                     </ul>
