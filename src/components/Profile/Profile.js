@@ -15,49 +15,90 @@ const ProfileTabs = (active) => {
     active = active.active;
     const [user, setUser] = useState({});
     const params = useParams();
-    useEffect(() => {findUserbyId(params.id).then(result => setUser(result))});
+    useEffect(() => {findUserbyId(params.id).then(result => setUser(result))}, [user]);
     return (
         <div className={"card-header"}>
             <ul className="nav nav-tabs card-header-tabs justify-content-center">
                 <li className={`nav-item`}>
-                    <Link className= {` nav-link ${active === 'bookmarks' ? 'active' : ''}`} to={`/profile/${user._id}/bookmarks`}>Bookmarks</Link>
+                    <Link className= {` nav-link ${active === 'bookmarks' ? 'active' : ''}`} to={`/profile/${params.id}/bookmarks`}>Bookmarks</Link>
                 </li>
                 <li className={`nav-item`}>
-                    <Link className={`nav-link ${active === 'cart' ? 'active' : ''}`} to={`/profile/${user._id}/cart`}>Cart</Link>
+                    <Link className={`nav-link ${active === 'cart' ? 'active' : ''}`} to={`/profile/${params.id}/cart`}>Cart</Link>
                 </li>
                 <li className={`nav-item`}>
-                    <Link className={`nav-link ${active === 'selling' ? 'active' : ''}`} to={`/profile/${user._id}/selling`}>Now Selling</Link>
+                    <Link className={`nav-link ${active === 'selling' ? 'active' : ''}`} to={`/profile/${params.id}/selling`}>Now Selling</Link>
                 </li>
                 <li className={`nav-item`}>
-                    <Link className={`nav-link ${active === 'makeItem' ? 'active' : ''}`} to={`/profile/${user._id}/makeItem`}>Create Item</Link>
+                    <Link className={`nav-link ${active === 'makeItem' ? 'active' : ''}`} to={`/profile/${params.id}/makeItem`}>Create Item</Link>
                 </li>
             </ul>
         </div>
     )
 }
+
+const EditProfile = (active) => {
+    active = active.active;
+    const [user, setUser] = useState({});
+    const params = useParams();
+    useEffect(() => {findUserbyId(params.id).then(result => setUser(result))}, [user]);
+
+    if (active !== 'edit' && user.loggedIn) {
+        return(
+        <div className={"card bg-light card-profile-format override-bs"}>
+            <div className="card-header larger-text">Profile</div>
+            <img className="mt-2 profile-image d-block mx-auto border" src={user.profile} alt="profile icon"/>
+            <div className="d-flex flex-column card-body">
+                <h5 className="card-title d-flex justify-content-center">{user.username}</h5>
+                <div className="form-group mt-3">
+                    <label htmlFor="newFirstName" className="form-label">Change first name to:</label>
+                    <input type="email" className="form-control" id="newFirstName" aria-describedby="emailHelp" placeholder="Enter new first name"/>
+                </div>
+                <div className="form-group mt-3">
+                    <label htmlFor="newLastName" className="form-label">Change last name to:</label>
+                    <input type="password" className="form-control" id="newLastName" placeholder="Enter new last name"/>
+                </div>
+                <div className="form-group mt-3">
+                    <label htmlFor="newPhoneNumber" className="form-label">Change phone number to:</label>
+                    <input type="password" className="form-control" id="newPhoneNumber" placeholder="Enter new phone number"/>
+                </div>
+                <p className="card-text d-flex my-3">Date of birth</p>
+                <Link to={`/profile/${user._id}`} className={`btn btn-primary mb-2`}>Save</Link>
+            </div>
+        </div>);
+    } else {
+        return(
+        <div className={"card bg-light card-profile-format override-bs"}>
+            <div className="card-header larger-text">Profile</div>
+            <img className="mt-2 profile-image d-block mx-auto border" src={user.profile} alt="profile icon"/>
+            <div className="d-flex flex-column card-body">
+                <h5 className="card-title d-flex justify-content-center">{user.username}</h5>
+                <p className="card-text d-flex justify-content-center">{user.firstName}</p>
+                <p className="card-text d-flex justify-content-center">{user.lastName}</p>
+                <p className="card-text d-flex justify-content-center">Phone Number</p>
+                <p className="card-text d-flex justify-content-center">Date of birth</p>
+                <Link to={`/profile/${user._id}/edit`}
+                      className={`btn btn-primary mb-2 ${user.loggedIn === false ? 'visually-hidden' : ''}`}>Edit</Link>
+            </div>
+        </div>);
+    }
+}
+
 const Profile = () => {
     const [user, setUser] = useState({});
     const params = useParams();
-    useEffect(() => {findUserbyId(params.id).then(result => setUser(result))});
+    useEffect(() => {findUserbyId(params.id).then(result => setUser(result))}, [user]);
     return (
         <div className="row mt-3 mb-3">
             <div className="col-4 ms-3 me-1">
-                <div className={"card bg-light card-profile-format override-bs"}>
-                    <div className="card-header larger-text">Profile</div>
-                    <img className="mt-2 profile-image d-block mx-auto border" src={user.profile} alt="profile icon"/>
-                    <div className="d-flex flex-column card-body">
-                        <h5 className="card-title d-flex justify-content-center">{user.username}</h5>
-                        <p className="card-text d-flex justify-content-center">{user.firstName}</p>
-                        <p className="card-text d-flex justify-content-center">{user.lastName}</p>
-                        <p className="card-text d-flex justify-content-center">Date of birth</p>
-                        <p className="card-text d-flex justify-content-center">Phone Number</p>
-                        <a href="#" className="btn btn-primary mb-2">Edit</a>
-                        <a href="#" className="btn btn-primary mb-2">Save</a>
-                    </div>
-                </div>
+                <Route path={["/profile/:id", "/profile/:id/bookmarks", "/profile/:id/cart", "/profile/:id/selling", "/profile/:id/makeItem"]} exact={true}>
+                    <EditProfile user={user} active={`edit`}/>
+                </Route>
+                <Route path={"/profile/:id/edit"} exact={true}>
+                    <EditProfile user={user} active={`save`}/>
+                </Route>
             </div>
             <div className="col-7 card bg-light profile-section override-bs px-0 override-bs">
-                <Route path={["/profile/:id", "/profile/:id/bookmarks"]} exact={true}>
+                <Route path={["/profile/:id", "/profile/:id/edit", "/profile/:id/bookmarks"]} exact={true}>
                     <ProfileTabs user={user} active="bookmarks"/>
                     <BookmarkList/>
                 </Route>
@@ -70,7 +111,7 @@ const Profile = () => {
                     <SellList />
                 </Route>
                 <Route path={["/profile/:id/makeItem"]} exact={true}>
-                    <ProfileTabs active="makeItem"/>
+                    <ProfileTabs user={user} active="makeItem"/>
                     <MakeItem />
                 </Route>
             </div>

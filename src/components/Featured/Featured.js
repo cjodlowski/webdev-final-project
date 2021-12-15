@@ -6,7 +6,7 @@ import {findFeatured} from "../../services/item-service";
 
 const Featured = () => {
     const [items, setItems] = useState([]);
-    useEffect(() => {findFeatured().then(received => setItems(received))})
+    useEffect(() => {findFeatured().then(received => setItems(received))}, [items]);
     return(
         <div className={"row"}>
             <div className={"col-2"}/>
