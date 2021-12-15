@@ -13,6 +13,7 @@ import { findUserbyId } from "../../services/user-service";
 
 const ProfileTabs = (active) => {
     active = active.active;
+    const [user, setUser] = useState({});
     const params = useParams();
     useEffect(() => {findUserbyId(params.id).then(result => setUser(result))}, [user]);
     return (
@@ -61,7 +62,7 @@ const EditProfile = (active) => {
                     <input type="password" className="form-control" id="newPhoneNumber" placeholder="Enter new phone number"/>
                 </div>
                 <p className="card-text d-flex my-3">Date of birth</p>
-                <Link to={`/profile/${user._id}`} className={`btn btn-primary mb-2`}>Save</Link>
+                <Link to={`/profile/${params.id}`} className={`btn btn-primary mb-2`}>Save</Link>
             </div>
         </div>);
     } else {
@@ -73,9 +74,9 @@ const EditProfile = (active) => {
                 <h5 className="card-title d-flex justify-content-center">{user.username}</h5>
                 <p className="card-text d-flex justify-content-center">{user.firstName}</p>
                 <p className="card-text d-flex justify-content-center">{user.lastName}</p>
-                <p className="card-text d-flex justify-content-center">Phone Number</p>
-                <p className="card-text d-flex justify-content-center">Date of birth</p>
-                <Link to={`/profile/${user._id}/edit`}
+                <p className="card-text d-flex justify-content-center">{user.phone}</p>
+                <p className="card-text d-flex justify-content-center">{user.dob}</p>
+                <Link to={`/profile/${params.id}/edit`}
                       className={`btn btn-primary mb-2 ${user.loggedIn === false ? 'visually-hidden' : ''}`}>Edit</Link>
             </div>
         </div>);

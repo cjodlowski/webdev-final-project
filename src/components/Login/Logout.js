@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {findUserbyId, logUserOut} from "../../services/user-service";
 
 const Login = () => {
     const [user, setUser] = useState({});
+    const params = useParams();
     const doesUserExist = (inputUN) => { findUserbyId(inputUN).then(result => setUser(result));};
     useEffect( () =>
     {
@@ -28,9 +29,8 @@ const Login = () => {
                     <h5>Are you sure you want to log out?</h5>
                     <div>
                         <button
-                            onClick={() => {
-                                let inputUsername = "61b9382065b59678db232100"; //GoldieLocks here
-                                doesUserExist(inputUsername);
+                            onClick={() => { //GoldieLocks here
+                                doesUserExist(params.id);
                                 console.log(user.username);
 
                             }}
