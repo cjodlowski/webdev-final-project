@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 
 import {findFiltered } from "../../../services/item-service";
-import  {findLoggedIn} from "../../../services/user-service";
+import  {findLoggedIn, findUserbyUN} from "../../../services/user-service";
 const CatalogItem = (
                          item = {
                              title: "item",
@@ -16,12 +16,16 @@ const CatalogItem = (
                      ) => {
     item = item.item;
     const [user, setUser] = useState({});
-    const [bookmarks, setBookmark] = useState([]);
-    //useEffect(() => { findLoggedIn().then(result => setUser(result));}, [user]);
-    //useEffect(() => {findFiltered(user.bookmarks).then(result => setBookmark(result))}, [user.bookmarks]);
-    let itemIsBookmarked = bookmarks.includes(item._id);
-    //console.log(bookmarks);
-    //console.log(item._id, itemIsBookmarked);
+    const [linkid, setLink] = useState("");
+    //console.log(item.seller);
+    useEffect(() => {findUserbyUN(item.seller).then(result => setUser(result));});
+    useEffect(() => {console.log(user)}, [user]);
+    useEffect(() => {
+        if(user != null) {
+            setLink(user._id)
+        }
+    }, [user]);
+
     const formatCurrency = (price = 1.01) => {
         let num = price.toLocaleString('en-US', {minimumFractionDigits: 2});
         return(num);
@@ -31,10 +35,12 @@ const CatalogItem = (
 
     }
 
+    let itemIsBookmarked = false;
+
     return(
             <>
                 <div className={"me-3 mb-3 col-3 card border-secondary px-0 override-bs"}>
-                <Link className="card-header remove-decorations override-bs" to={"/profile/id/:id"}>
+                <Link className="card-header remove-decorations override-bs" to={`/profile/${linkid}`}>
                     <h6 className={"mb-0 seller-link"}>{item.seller}</h6>
                 </Link>
                     <img className="card-img-top card-img-height my-2 mx-auto d-block override-bs" src={item.image} alt="shop item"/>
