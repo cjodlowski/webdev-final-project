@@ -13,6 +13,7 @@ const MakeItem = () => {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState(0);
     const [tags, setTags] = useState("");
+    const [desc, setDesc] = useState("");
 
     useEffect(() => {
         findUser();
@@ -30,7 +31,8 @@ const MakeItem = () => {
             rating: 0,
             tags: tags.split(" "),
             featured: false,
-            seller : user.username
+            seller : user.username,
+            desc : desc
         }
 
         createNewItem(newitem).then(result => setItem(result));
@@ -57,6 +59,11 @@ const MakeItem = () => {
                         <label htmlFor="newItemTags" className="form-label mt-4" data-bs-toggle={"tooltip"} title={"Please enter a list separated by spaces!"}>Item tags</label>
                         <input onChange={(e) => setTags(e.target.value)} value={tags} type="tags" className="form-control" id="newItemTags"
                                placeholder="Enter tags"  data-bs-toggle={"tooltip"} title={"Please enter a list separated by spaces!"}/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="newDesc" className="form-label mt-4" data-bs-toggle={"tooltip"} title={"Describe your item!"}>Item description</label>
+                        <input onChange={(e) => setDesc(e.target.value)} value={desc} type="desc" className="form-control" id="newDesc"
+                               placeholder="Enter Description"  data-bs-toggle={"tooltip"} title={"Describe your item!"}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="formFile" className="form-label mt-4">Item picture</label>
