@@ -3,6 +3,16 @@
     width: auto;
 }
 
+.detail-image.override-bs {
+    border-radius: 10px;
+    max-height: 350px;
+    width: auto;
+}
+
+.rating-right.override-bs {
+    margin-left: auto
+}
+
 .seller-link.override-bs {
     font-weight: bold;
 }

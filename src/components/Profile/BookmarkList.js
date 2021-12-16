@@ -11,7 +11,7 @@ const BookmarkList = () => {
     const [bookmarks, setBookmark] = useState([]);
     const params = useParams();
     useEffect(() => { findUserbyId(params.id).then(result => setUser(result)) }, [user]);
-    useEffect(() => {findFiltered(user.bookmarks).then(result => setBookmark(result))}, [user.bookmarks]);
+    useEffect(() => { findFiltered(user.bookmarks).then(result => setBookmark(result))}, [user.bookmarks]);
 
     return (
         <div className="mx-2 mt-3 container">

@@ -8,11 +8,12 @@ const MakeItem = () => {
     const [user, setUser] = useState({});
     const [item, setItem] = useState({});
     const params = useParams();
-    const findUser = () => {console.log("Click find user"); findUserbyId(params.id).then(result => setUser(result))};
+    const findUser = () => {findUserbyId(params.id).then(result => setUser(result))};
 
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState(0);
     const [tags, setTags] = useState("");
+    const [desc, setDesc] = useState("");
 
     useEffect(() => {
         findUser();
@@ -30,9 +31,10 @@ const MakeItem = () => {
             rating: 0,
             tags: tags.split(" "),
             featured: false,
-            seller : user.username
+            seller : user.username,
+            desc : desc
         }
-       // findUser();
+
         createNewItem(newitem).then(result => setItem(result));
     }
 
@@ -59,11 +61,15 @@ const MakeItem = () => {
                                placeholder="Enter tags"  data-bs-toggle={"tooltip"} title={"Please enter a list separated by spaces!"}/>
                     </div>
                     <div className="form-group">
+                        <label htmlFor="newDesc" className="form-label mt-4" data-bs-toggle={"tooltip"} title={"Describe your item!"}>Item description</label>
+                        <input onChange={(e) => setDesc(e.target.value)} value={desc} type="desc" className="form-control" id="newDesc"
+                               placeholder="Enter Description"  data-bs-toggle={"tooltip"} title={"Describe your item!"}/>
+                    </div>
+                    <div className="form-group">
                         <label htmlFor="formFile" className="form-label mt-4">Item picture</label>
                         <input className="form-control" type="file" id="formFile"/>
                     </div>
                     <div className={"mt-2"}>
-                        {/* Update User in DB here */}
                         <button onClick={() => {createItem()}} className={"btn btn-secondary my-2"}>Create Listing
                         </button>
                     </div>

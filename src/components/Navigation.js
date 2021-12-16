@@ -22,9 +22,11 @@ const Navigation = (active = 'featured') => {
                 </div>
                 <div className={"d-flex justify-content-center mt-1"}>
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link className={`nav-link ${active === 'featured' ? 'active' : ''}`} to="/featured">Featured</Link>
-                        </li>
+                        <span className={ user === null ? "visually-hidden" : ''}>
+                            <li className="nav-item">
+                                <Link className={`nav-link ${active === 'featured' ? 'active' : ''}`} to="/featured">Featured</Link>
+                            </li>
+                        </span>
                         <li className="nav-item">
                             <Link className={`nav-link ${active === 'recents' ? 'active' : ''}`} to="/recents">Recents</Link>
                         </li>
@@ -39,7 +41,7 @@ const Navigation = (active = 'featured') => {
                     </div>
                     <div className="col-4 mb-3 mt-3 btn-group me-2" role="group">
                             <Link to={() => {
-                                if (user !== null) {
+                                if (user !== null && user !== undefined) {
                                     return(`/profile/${user._id}`);
                                 } else {
                                     return(`/login`);
@@ -57,12 +59,8 @@ const Navigation = (active = 'featured') => {
                                         user !== null ? 'visually-hidden' : ''
                                     }`}>Log in</span>
                                 </Link>
-                                <Link to={`/logout/${
-                                    user !== null ? `${user._id}` : "" 
-                                }`} className={"remove-decorations override-bs"}>
-                                    <span className={
-                                        `dropdown-item ${user === null ? 'visually-hidden' : ''
-                                        }`}>Log out</span>
+                                <Link to={`/logout/${user !== null ? `${user._id}` : ""}`} className={"remove-decorations override-bs"}>
+                                    <span className={`dropdown-item ${user === null ? 'visually-hidden' : ''}`}>Log out</span>
                                 </Link>
                                 <Link to="/register" className={`remove-decorations override-bs`}>
                                     <span className={`dropdown-item ${user !== null ? 'visually-hidden' : ''}`}>Sign up</span>
