@@ -11,13 +11,13 @@ const Login = () => {
         if(user.username !== undefined) {
             console.log("logging out!");
             logOut(user._id);
-            window.location = "/login";
         } else {
             console.log("oops... couldn't log out :(")
         }
     }, [user]);
 
     const logOut = () => {
+        window.location = "/login";
         logUserOut(user._id);
     };
     return (
